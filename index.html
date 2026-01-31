@@ -1,0 +1,1317 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>易军军 - Golang Python后端开发</title>
+        <link href="bootstrap.min.css" rel="stylesheet" />
+        <link href="bootstrap-icons.css" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            :root {
+                --primary-color: #667eea;
+                --secondary-color: #764ba2;
+                --bg-light: #f7fafc;
+                --bg-gradient: linear-gradient(
+                    135deg,
+                    #667eea 0%,
+                    #764ba2 100%
+                );
+                --card-shadow: 0 10px 40px rgba(102, 126, 234, 0.15);
+            }
+
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                scroll-behavior: smooth;
+            }
+
+            body {
+                font-family:
+                    "Noto Sans SC", "Microsoft YaHei", "PingFang SC", sans-serif;
+                line-height: 1.8;
+                color: #2d3748;
+                background: linear-gradient(180deg, #f7fafc 0%, #edf2f7 100%);
+                overflow-x: hidden;
+            }
+
+            /* Header Section */
+            .header-section {
+                background: var(--bg-gradient);
+                color: white;
+                padding: 80px 0 60px;
+            }
+
+            .avatar-container {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 6px solid rgba(255, 255, 255, 0.4);
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+                margin: 0 auto 25px;
+            }
+
+            .avatar-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .name-title {
+                font-size: 3rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            .role-title {
+                font-size: 1.3rem;
+                font-weight: 300;
+                opacity: 0.95;
+            }
+
+            /* Basic Info Card */
+            .basic-info-card {
+                background: white;
+                border-radius: 20px;
+                padding: 40px;
+                margin-top: -50px;
+                box-shadow: var(--card-shadow);
+                position: relative;
+                z-index: 10;
+            }
+
+            .info-item {
+                display: inline-flex;
+                align-items: center;
+                margin: 10px 20px 10px 0;
+                font-size: 14px;
+                color: #4a5568;
+                padding: 8px 16px;
+                background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+                border-radius: 25px;
+            }
+
+            .info-item i {
+                color: var(--primary-color);
+                margin-right: 8px;
+                font-size: 18px;
+            }
+
+            .info-item a {
+                color: var(--primary-color);
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+            .info-item a:hover {
+                color: var(--secondary-color);
+                text-decoration: underline;
+            } /* Section Title */
+            .section-title {
+                color: #2d3748;
+                font-weight: 700;
+                font-size: 2rem;
+                margin: 60px 0 35px;
+                position: relative;
+                padding-left: 25px;
+            }
+
+            .section-title::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 6px;
+                height: 40px;
+                background: var(--bg-gradient);
+                border-radius: 3px;
+            }
+
+            .section-title i {
+                color: var(--primary-color);
+                margin-right: 10px;
+            }
+
+            /* Advantage Grid */
+            .advantage-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 20px;
+                padding: 20px 0;
+            }
+
+            .advantage-image-item {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                transition: all 0.3s;
+            }
+
+            .advantage-image-item:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--hover-shadow);
+            }
+
+            .advantage-image-item img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+
+            /* Advantage Cards */
+            .advantage-item {
+                background: white;
+                border-radius: 16px;
+                padding: 25px;
+                margin-bottom: 20px;
+                box-shadow: var(--card-shadow);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .advantage-item::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background: var(--bg-gradient);
+            }
+
+            .advantage-item h5 {
+                color: var(--secondary-color);
+                margin-bottom: 12px;
+                font-weight: 600;
+                font-size: 1.1rem;
+            }
+
+            .advantage-item h5 i {
+                color: var(--primary-color);
+                margin-right: 8px;
+            }
+
+            /* Website Table */
+            .website-table-container {
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+            }
+
+            .website-table {
+                margin: 0;
+            }
+
+            .website-table thead {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .website-table th {
+                border: none;
+                padding: 18px;
+                font-weight: 600;
+            }
+
+            .website-table td {
+                padding: 16px 18px;
+                border-bottom: 1px solid #edf2f7;
+            }
+
+            .website-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .website-table a {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 500;
+                display: inline-flex;
+                align-items: center;
+            }
+
+            .website-table a:hover {
+                color: var(--secondary-color);
+                text-decoration: underline;
+            }
+
+            .website-table a i {
+                margin-left: 5px;
+            }
+
+            /* QR Code Grid */
+            .qr-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+                padding: 30px;
+            }
+
+            .qr-item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .qr-item img {
+                width: 140px;
+                height: 140px;
+                border: 2px solid #e2e8f0;
+                border-radius: 12px;
+                padding: 10px;
+                background: white;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                transition: all 0.3s;
+                cursor: pointer;
+            }
+
+            .qr-item img:hover {
+                border-color: var(--primary-color);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.2);
+                transform: translateY(-3px);
+            }
+
+            .qr-item a {
+                text-decoration: none;
+            }
+
+            .qr-item .qr-label {
+                margin-top: 12px;
+                font-size: 14px;
+                font-weight: 600;
+                color: #2d3748;
+            }
+
+            .qr-item .qr-url {
+                margin-top: 4px;
+                font-size: 11px;
+                color: #718096;
+                word-break: break-all;
+            }
+
+            /* Work Cards */
+            .work-card {
+                background: white;
+                border-radius: 16px;
+                padding: 30px;
+                margin-bottom: 25px;
+                box-shadow: var(--card-shadow);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .work-card::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 5px;
+                height: 100%;
+                background: var(--bg-gradient);
+            }
+
+            .work-card .company-title {
+                color: #2d3748;
+                font-weight: 700;
+                font-size: 1.3rem;
+                margin-bottom: 8px;
+            }
+
+            .work-card .work-period {
+                color: #718096;
+                font-size: 14px;
+                margin-bottom: 12px;
+            }
+
+            .work-card .work-position {
+                background: var(--bg-gradient);
+                color: white;
+                padding: 6px 18px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 500;
+                display: inline-block;
+            }
+
+            /* Project Subsection */
+            .project-subsection {
+                background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+                border-radius: 12px;
+                padding: 22px;
+                margin: 18px 0;
+                border-left: 4px solid var(--primary-color);
+            }
+
+            .project-subsection h6 {
+                color: #4a5568;
+                margin-bottom: 15px;
+                font-weight: 600;
+                font-size: 1rem;
+            }
+
+            .project-subsection h6 i {
+                color: var(--primary-color);
+                margin-right: 8px;
+            }
+
+            .project-subsection p {
+                margin-bottom: 10px;
+                color: #4a5568;
+            }
+
+            .project-subsection strong {
+                color: var(--secondary-color);
+                font-weight: 600;
+            }
+
+            /* Tech Badges */
+            .tech-badge {
+                display: inline-block;
+                background: linear-gradient(
+                    135deg,
+                    rgba(102, 126, 234, 0.1) 0%,
+                    rgba(118, 75, 162, 0.1) 100%
+                );
+                color: var(--primary-color);
+                padding: 8px 16px;
+                border-radius: 20px;
+                font-size: 13px;
+                font-weight: 500;
+                margin: 4px;
+                border: 1px solid rgba(102, 126, 234, 0.2);
+            }
+
+            .tech-badge:hover {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            /* Achievement Items */
+            .achievement-item {
+                position: relative;
+                padding-left: 30px;
+                margin-bottom: 12px;
+                color: #4a5568;
+            }
+
+            .achievement-item::before {
+                content: "✓";
+                position: absolute;
+                left: 0;
+                color: var(--primary-color);
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            /* Timeline Horizontal */
+            .timeline-horizontal {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 10px;
+                padding: 30px 0;
+                background: white;
+                border-radius: 16px;
+                box-shadow: var(--card-shadow);
+            }
+
+            .timeline-item-horizontal {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 15px 25px;
+                background: linear-gradient(
+                    135deg,
+                    rgba(102, 126, 234, 0.1) 0%,
+                    rgba(118, 75, 162, 0.1) 100%
+                );
+                border-radius: 12px;
+                border: 2px solid var(--primary-color);
+                transition: all 0.3s;
+                min-width: 80px;
+            }
+
+            .timeline-item-horizontal:hover {
+                transform: translateY(-5px);
+                box-shadow: var(--hover-shadow);
+                background: var(--bg-gradient);
+            }
+
+            .timeline-item-horizontal:hover .timeline-year-horizontal,
+            .timeline-item-horizontal:hover .timeline-company-horizontal {
+                color: white;
+            }
+
+            .timeline-horizontal a {
+                text-decoration: none;
+            }
+
+            .timeline-year-horizontal {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: var(--primary-color);
+                margin-bottom: 5px;
+            }
+
+            .timeline-company-horizontal {
+                font-size: 0.9rem;
+                color: #4a5568;
+                font-weight: 500;
+                text-align: center;
+            }
+
+            .timeline-arrow {
+                font-size: 1.5rem;
+                color: var(--primary-color);
+                font-weight: bold;
+                padding: 0 5px;
+            }
+
+            /* Footer */
+            .footer {
+                background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+                color: white;
+                padding: 50px 0 30px;
+                margin-top: 80px;
+                text-align: center;
+                position: relative;
+            }
+
+            .footer::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: var(--bg-gradient);
+            }
+
+            .footer p {
+                margin-bottom: 15px;
+            }
+
+            .footer a {
+                color: rgba(255, 255, 255, 0.8);
+                text-decoration: none;
+                margin: 0 15px;
+                padding: 10px 20px;
+                border-radius: 25px;
+                background: rgba(255, 255, 255, 0.1);
+                display: inline-block;
+            }
+
+            .footer a:hover {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .footer .copyright {
+                color: rgba(255, 255, 255, 0.6);
+                font-size: 14px;
+            }
+
+            /* Responsive */
+            @media (max-width: 768px) {
+                .header-section {
+                    padding: 60px 0 40px;
+                }
+
+                .avatar-container {
+                    width: 140px;
+                    height: 140px;
+                }
+
+                .name-title {
+                    font-size: 2.2rem;
+                }
+
+                .role-title {
+                    font-size: 1.1rem;
+                }
+
+                .basic-info-card {
+                    padding: 25px;
+                    margin-top: -40px;
+                }
+
+                .info-item {
+                    display: block;
+                    margin: 8px 0;
+                }
+
+                .section-title {
+                    font-size: 1.6rem;
+                }
+
+                .work-card,
+                .advantage-item {
+                    padding: 20px;
+                }
+
+                .qr-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                    padding: 20px;
+                }
+
+                .advantage-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 15px;
+                    padding: 15px 0;
+                }
+
+                .advantage-image-item img {
+                    border-radius: 12px;
+                }
+
+                .timeline-horizontal {
+                    gap: 8px;
+                    padding: 20px 10px;
+                }
+
+                .timeline-item-horizontal {
+                    padding: 12px 15px;
+                    min-width: 70px;
+                }
+
+                .timeline-year-horizontal {
+                    font-size: 1.2rem;
+                }
+
+                .timeline-company-horizontal {
+                    font-size: 0.8rem;
+                }
+
+                .timeline-arrow {
+                    font-size: 1.2rem;
+                    padding: 0 3px;
+                }
+
+                .qr-item img {
+                    width: 120px;
+                    height: 120px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header-section">
+            <div class="container">
+                <div class="text-center">
+                    <div class="avatar-container">
+                        <img src="头像.png" alt="易军军头像" />
+                    </div>
+                    <h1 class="name-title">易军军</h1>
+                    <p class="role-title">Golang Python开发 | 20年开发经验</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Basic Info -->
+        <section class="container">
+            <div class="basic-info-card">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="info-item">
+                            <i class="bi bi-person"></i>
+                            <strong>性别：</strong>男
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-calendar3"></i>
+                            <strong>年龄：</strong>41岁
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-telephone"></i>
+                            <strong>电话：</strong>18979439516
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-envelope"></i>
+                            <strong>邮箱：</strong
+                            ><a href="mailto:yijunjun@163.com"
+                                >yijunjun@163.com</a
+                            >
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-briefcase"></i>
+                            <strong>经验：</strong>20年
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-code-slash"></i>
+                            <strong>意向：</strong>Golang Python
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-currency-yen"></i>
+                            <strong>期望薪资：</strong>15-30K
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <strong>优点：</strong>靠谱 好学 抗压
+                        </div>
+                        <div class="info-item">
+                            <i class="bi bi-geo-alt"></i>
+                            <strong>期望城市：</strong>深圳
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Advantages -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-star-fill"></i> 主要技能
+            </h2>
+            <div class="advantage-grid">
+                <div class="advantage-image-item">
+                    <img src="advantage_1.png" alt="深厚经验" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_2.png" alt="技术全面" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_3.png" alt="持续沉淀" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_4.png" alt="敬业负责" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_5.png" alt="职业素养" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_6.png" alt="代码质量" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_7.png" alt="抗压能力" />
+                </div>
+                <div class="advantage-image-item">
+                    <img src="advantage_8.png" alt="学习能力" />
+                </div>
+            </div>
+        </section>
+
+        <!-- Career Timeline -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-clock-history"></i> 职业时间线
+            </h2>
+            <div class="timeline-horizontal">
+                <a href="#work-2022" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2022</div>
+                    <div class="timeline-company-horizontal">道道网络</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2017" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2017</div>
+                    <div class="timeline-company-horizontal">大旺网络</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2016" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2016</div>
+                    <div class="timeline-company-horizontal">迷雾科技</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2015" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2015</div>
+                    <div class="timeline-company-horizontal">智度网络</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2008" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2008</div>
+                    <div class="timeline-company-horizontal">旭日电脑</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2007" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2007</div>
+                    <div class="timeline-company-horizontal">鸿远智欣</div>
+                </a>
+                <div class="timeline-arrow">←</div>
+                <a href="#work-2006" class="timeline-item-horizontal">
+                    <div class="timeline-year-horizontal">2006</div>
+                    <div class="timeline-company-horizontal">港澳大家</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Personal Websites -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-globe"></i> 技术分站</h2>
+            <div class="website-table-container">
+                <div class="qr-grid">
+                    <div class="qr-item">
+                        <a href="https://python.yijunjun.icu" target="_blank">
+                            <img src="qr_Python.png" alt="Python" />
+                            <div class="qr-label">Python</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://golang.yijunjun.icu" target="_blank">
+                            <img src="qr_Golang.png" alt="Golang" />
+                            <div class="qr-label">Golang</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://flutter.yijunjun.icu" target="_blank">
+                            <img src="qr_Flutter.png" alt="Flutter" />
+                            <div class="qr-label">Flutter</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a
+                            href="https://javascript.yijunjun.icu"
+                            target="_blank"
+                        >
+                            <img src="qr_JavaScript.png" alt="JavaScript" />
+                            <div class="qr-label">JavaScript</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://docker.yijunjun.icu" target="_blank">
+                            <img src="qr_Docker.png" alt="Docker" />
+                            <div class="qr-label">Docker</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://git.yijunjun.icu" target="_blank">
+                            <img src="qr_Git.png" alt="Git" />
+                            <div class="qr-label">Git</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://redis.yijunjun.icu" target="_blank">
+                            <img src="qr_Redis.png" alt="Redis" />
+                            <div class="qr-label">Redis</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://doc.yijunjun.icu" target="_blank">
+                            <img src="qr_技术文档.png" alt="技术文档" />
+                            <div class="qr-label">技术文档</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://excel.yijunjun.icu" target="_blank">
+                            <img src="qr_Excel.png" alt="Excel" />
+                            <div class="qr-label">Excel</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://pdf.yijunjun.icu" target="_blank">
+                            <img src="qr_PDF.png" alt="PDF" />
+                            <div class="qr-label">PDF</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://neo4j.yijunjun.icu" target="_blank">
+                            <img src="qr_Neo4j.png" alt="Neo4j" />
+                            <div class="qr-label">Neo4j</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://nginx.yijunjun.icu" target="_blank">
+                            <img src="qr_Nginx.png" alt="Nginx" />
+                            <div class="qr-label">Nginx</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://mysql.yijunjun.icu" target="_blank">
+                            <img src="qr_MySQL.png" alt="MySQL" />
+                            <div class="qr-label">MySQL</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://k8s.yijunjun.icu" target="_blank">
+                            <img src="qr_Kubernetes.png" alt="Kubernetes" />
+                            <div class="qr-label">Kubernetes</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://pay.yijunjun.icu" target="_blank">
+                            <img src="qr_支付.png" alt="支付" />
+                            <div class="qr-label">支付</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://doctor.yijunjun.icu" target="_blank">
+                            <img src="qr_医学.png" alt="医学" />
+                            <div class="qr-label">医学</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://money.yijunjun.icu" target="_blank">
+                            <img src="qr_经济.png" alt="经济" />
+                            <div class="qr-label">经济</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-briefcase-fill"></i> 工作经历
+            </h2>
+
+            <!-- 深圳道道网络科技有限公司 -->
+            <div class="work-card" id="work-2022">
+                <div class="company-title">深圳道道网络科技有限公司</div>
+                <div class="work-period">2022.04 - 2026.01</div>
+                <span class="work-position">Golang | Python</span>
+
+                <div class="project-subsection mt-4">
+                    <h6 class="text-primary mb-3">高考填报志愿系统</h6>
+                    <p>
+                        <strong>数据生产：</strong
+                        >基于书本OCR和自研规则引擎实现纸质文档数字化，确保数据准确性和完整性。
+                    </p>
+                    <p>
+                        <strong>数据关联：</strong
+                        >建立本年数据与历年数据的关联机制，提供全面的数据分析支持。
+                    </p>
+                    <p>
+                        <strong>智能推荐：</strong
+                        >利用算法分析考生数据，智能推荐适配院校与专业，提升志愿填报成功率。
+                    </p>
+                    <p>
+                        <strong>信息整合：</strong
+                        >整合院校专业资料及就业报告，为客户提供决策支持。
+                    </p>
+
+                    <h6 class="text-primary mb-3 mt-4">
+                        福田区教育局全区中小学生学习力评估
+                    </h6>
+                    <p>
+                        <strong>题库设计：</strong
+                        >针对K12各学段特点，多维度设计测评题目，全面考查学生能力优势。
+                    </p>
+                    <p>
+                        <strong>能力评估：</strong
+                        >从学习动力、学习能力、学习执行力、成长环境、成长型思维等维度进行综合评估。
+                    </p>
+                    <p>
+                        <strong>报告生成：</strong
+                        >构建学校、年级、班级三层级报告体系，帮助学生、教师和家长全面了解学生现状。
+                    </p>
+                    <p>
+                        <strong>专家解读：</strong
+                        >组织权威专家为教师提供报告解读服务，解答师生疑问。
+                    </p>
+
+                    <h6 class="text-primary mb-3 mt-4">测评智能成长系统</h6>
+                    <p>
+                        <strong>自我认知：</strong
+                        >通过专业测评和个性化报告，帮助用户深入认知自身优势与潜力。
+                    </p>
+                    <p>
+                        <strong>问题诊断：</strong
+                        >整合家长、孩子和学校三方信息，精准定位成长关键节点。
+                    </p>
+                    <p>
+                        <strong>成长规划：</strong
+                        >制定个性化成长策略，设计实施路径并定期跟踪调整。
+                    </p>
+                    <p>
+                        <strong>全程服务：</strong
+                        >提供从小学到高中及升学就业全周期的成长支持服务。
+                    </p>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">PaddleOCR</span>
+                        <span class="tech-badge">Golang</span>
+                        <span class="tech-badge">gRPC</span>
+                        <span class="tech-badge">Protobuf</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">Neo4j</span>
+                        <span class="tech-badge">Elasticsearch</span>
+                        <span class="tech-badge">Kubernetes</span>
+                        <span class="tech-badge">Docker</span>
+                        <span class="tech-badge">Nginx</span>
+                        <span class="tech-badge">FastGPT</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <div class="achievement-item">
+                        高精度数字化处理，2小时完成单本书籍电子化
+                    </div>
+                    <div class="achievement-item">
+                        深度挖掘数据关联规则，关联准确率达95%
+                    </div>
+                    <div class="achievement-item">
+                        优化推荐算法，提升用户满意度
+                    </div>
+                    <div class="achievement-item">
+                        及时收集整理各类资料，丰富客户决策维度
+                    </div>
+                </div>
+            </div>
+
+            <!-- 深圳市大旺网络科技有限公司 -->
+            <div class="work-card" id="work-2017">
+                <div class="company-title">深圳市大旺网络科技有限公司</div>
+                <div class="work-period">2017.06 - 2022.04</div>
+                <span class="work-position">Golang | Python</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong
+                    >负责棋牌游戏系统的架构设计、逻辑实现与运维保障。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-collection"></i> 核心项目</h6>
+                    <p>
+                        扑克麻将游戏服务器、公共通讯服务、用户中心服务、消息队列服务、GM管理服务、运营管理后台、数据统计分析系统
+                    </p>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">Golang</span>
+                        <span class="tech-badge">TCP</span>
+                        <span class="tech-badge">Protobuf</span>
+                        <span class="tech-badge">HTTP</span>
+                        <span class="tech-badge">Vue.js</span>
+                        <span class="tech-badge">Unity3D</span>
+                        <span class="tech-badge">ET框架</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">Jenkins</span>
+                        <span class="tech-badge">Nginx</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <div class="achievement-item">
+                        全面维护系统稳定运行，保障业务连续性
+                    </div>
+                    <div class="achievement-item">
+                        设计并实现麻将胡牌核心算法
+                    </div>
+                    <div class="achievement-item">
+                        定位并解决麻将游戏内存泄漏问题
+                    </div>
+                    <div class="achievement-item">
+                        设计并实现扑克牌型比较算法
+                    </div>
+                    <div class="achievement-item">
+                        搭建游戏服务框架，支持快速开发新游戏
+                    </div>
+                </div>
+            </div>
+
+            <!-- 深圳迷雾科技有限公司 -->
+            <div class="work-card" id="work-2016">
+                <div class="company-title">深圳迷雾科技有限公司</div>
+                <div class="work-period">2016.03 - 2017.06</div>
+                <span class="work-position">Golang | Python</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong
+                    >负责社交App后端服务开发及前端功能实现。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">Golang</span>
+                        <span class="tech-badge">Protobuf</span>
+                        <span class="tech-badge">gRPC</span>
+                        <span class="tech-badge">Beego</span>
+                        <span class="tech-badge">Echo</span>
+                        <span class="tech-badge">Consul</span>
+                        <span class="tech-badge">Redis</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">Vue.js</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <p>推动项目正式上线并保障系统稳定运行。</p>
+                </div>
+            </div>
+
+            <!-- 广州智度网络科技有限公司 -->
+            <div class="work-card" id="work-2015">
+                <div class="company-title">广州智度网络科技有限公司</div>
+                <div class="work-period">2015.04 - 2015.11</div>
+                <span class="work-position">Python</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong
+                    >负责公司后台管理系统及数据统计平台开发，保障业务正常运营。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Flask</span>
+                        <span class="tech-badge">MongoDB</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">ECharts.js</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <p>按时高质量完成各项开发任务。</p>
+                </div>
+            </div>
+
+            <!-- 广州旭日电脑有限公司 -->
+            <div class="work-card" id="work-2008">
+                <div class="company-title">广州旭日电脑有限公司</div>
+                <div class="work-period">2008.04 - 2014.08</div>
+                <span class="work-position">嵌入式软件工程师</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong
+                    >负责单机及连线系列游戏软件及相关配套程序开发。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">单片机</span>
+                        <span class="tech-badge">VC++</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <p>游戏产品顺利上市销售，获得客户良好反馈。</p>
+                </div>
+            </div>
+
+            <!-- 深圳鸿远智欣 -->
+            <div class="work-card" id="work-2007">
+                <div class="company-title">深圳鸿远智欣</div>
+                <div class="work-period">2007.03 - 2007.09</div>
+                <span class="work-position">开发工程师</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong>负责门禁及停车场管理系统开发。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">Delphi</span>
+                        <span class="tech-badge">C语言</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 重庆港澳大家软件产业有限公司 -->
+            <div class="work-card" id="work-2006">
+                <div class="company-title">重庆港澳大家软件产业有限公司</div>
+                <div class="work-period">2006.06 - 2007.02</div>
+                <span class="work-position">Delphi</span>
+
+                <p class="mt-3">
+                    <strong>工作内容：</strong>负责路桥收费系统开发。
+                </p>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
+                    <div>
+                        <span class="tech-badge">Delphi</span>
+                        <span class="tech-badge">SQL Server</span>
+                    </div>
+                </div>
+
+                <div class="project-subsection">
+                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
+                    <p>系统稳定运行，保障收费业务正常开展。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Project Experience -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-diagram-3"></i> 项目经历
+            </h2>
+
+            <div class="work-card">
+                <div class="company-title">聊天棋牌 - 公共服务</div>
+                <div class="work-period">2018.10 - 至今 | 设计/编码/维护</div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong
+                    >为棋牌游戏项目提供统一的公共服务支撑。
+                </p>
+                <p>
+                    <strong>核心功能：</strong
+                    >玩家登录认证、在线状态上报、游戏回放记录、房间号分配管理、消息推送服务、战绩数据上报、房卡扣费系统、群聊号分配、LBS距离计算、游戏参数配置
+                </p>
+                <p>
+                    <strong>技术栈：</strong
+                    >Golang、Protobuf、MySQL、Redis、HTTP
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >系统上线后稳定运行，有力保障游戏正常运转。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">聊天棋牌 - 用户服</div>
+                <div class="work-period">2017.12 - 至今 | 设计/编码/维护</div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong
+                    >实现游戏非逻辑相关的用户业务功能。
+                </p>
+                <p>
+                    <strong>技术栈：</strong
+                    >Golang、Protobuf、MySQL、Redis、HTTP、阿里云OSS、容联云通讯、阿里云短信服务、H5页面开发
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >正式上线后运行稳定高效，成为游戏核心服务之一。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">
+                    宜黄红心5 / 乐安打盾 / 永丰510K / 永丰找朋友
+                </div>
+                <div class="work-period">
+                    2017.12 - 2025.12 | 设计/编码/维护
+                </div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>地方棋牌游戏开发与维护。
+                </p>
+                <p>
+                    <strong>核心工作：</strong
+                    >服务端开发、通信协议制定、机器人陪打功能、线上部署、运营监控
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >正式上线后用户反馈良好，系统稳定可靠。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">聊聊棋牌 - 运营后台</div>
+                <div class="work-period">2018.11 - 2022.03 | 负责人</div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>面向运营人员的管理后台系统。
+                </p>
+                <p>
+                    <strong>技术栈：</strong
+                    >Golang、Vue.js、HTTP、Protobuf、MySQL、Redis、ECharts
+                </p>
+                <p>
+                    <strong>主要业绩：</strong>正式上线后有力支撑产品运营需求。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">聊聊棋牌 - 定时统计</div>
+                <div class="work-period">
+                    2018.11 - 2025.12 | 设计/编码/维护
+                </div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>游戏数据定时统计分析系统。
+                </p>
+                <p>
+                    <strong>技术栈：</strong
+                    >Golang、MySQL、Redis、HTTP、邮件通知
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >为运营后台提供数据统计展示，帮助运营人员掌握系统各项指标。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">斗地主</div>
+                <div class="work-period">2018.04 - 至今 | 服务端</div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>经典斗地主棋牌游戏服务端开发。
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >正式上线后日活跃用户较多，用户反馈良好。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">Python加密/反编译</div>
+                <div class="work-period">2015.08 - 2016.02 | 负责人</div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>Python代码加密与反编译技术研究。
+                </p>
+                <p>
+                    <strong>核心工作：</strong
+                    >深入研究Python字节码机制、实现Python代码加密方案、实现Python反编译功能
+                </p>
+                <p>
+                    <strong>主要业绩：</strong>全程独立完成项目，达到预期目标。
+                </p>
+            </div>
+        </section>
+
+        <!-- Education -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-mortarboard-fill"></i> 教育经历
+            </h2>
+            <div class="work-card">
+                <div class="company-title">重庆理工大学</div>
+                <div class="work-period">2002 - 2006</div>
+                <span class="work-position">本科 | 材料成型及控制工程</span>
+            </div>
+        </section>
+
+        <!-- Certificates -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-award-fill"></i> 资格证书
+            </h2>
+            <div class="work-card">
+                <div class="achievement-item">软件设计师</div>
+                <div class="achievement-item">程序员</div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="mb-3">
+                    <a href="mailto:yijunjun@163.com"
+                        ><i class="bi bi-envelope"></i> yijunjun@163.com</a
+                    >
+                    <a href="tel:18979439516"
+                        ><i class="bi bi-telephone"></i> 18979439516</a
+                    >
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>
