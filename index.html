@@ -766,130 +766,474 @@
             /* Responsive */
             @media (max-width: 768px) {
                 .header-section {
-                    padding: 60px 0 40px;
+                    padding: 50px 0 35px;
                 }
 
                 .avatar-container {
-                    width: 140px;
-                    height: 140px;
+                    width: 120px;
+                    height: 120px;
                 }
 
                 .name-title {
-                    font-size: 2.2rem;
+                    font-size: 2rem;
                 }
 
                 .role-title {
-                    font-size: 1.1rem;
+                    font-size: 1rem;
                 }
 
                 .basic-info-card {
-                    padding: 25px;
-                    margin-top: -40px;
+                    padding: 20px;
+                    margin-top: -35px;
                 }
 
                 .info-item {
-                    display: block;
-                    margin: 8px 0;
+                    display: inline-block;
+                    margin: 6px 8px 6px 0;
+                    padding: 6px 12px;
+                    font-size: 12px;
                 }
 
                 .section-title {
-                    font-size: 1.6rem;
+                    font-size: 1.4rem;
+                    margin: 40px 0 25px;
                 }
 
                 .work-card,
                 .advantage-item {
-                    padding: 20px;
+                    padding: 18px;
                 }
 
                 .qr-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 20px;
-                    padding: 20px;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 12px;
+                    padding: 15px;
                 }
 
-                .advantage-grid {
-                    grid-template-columns: repeat(2, 1fr);
-                    gap: 15px;
-                    padding: 15px 0;
+                .qr-item img {
+                    width: 80px;
+                    height: 80px;
+                }
+
+                .qr-item .qr-label {
+                    font-size: 12px;
                 }
 
                 .skills-grid {
                     grid-template-columns: repeat(2, 1fr);
-                    gap: 15px;
+                    gap: 12px;
                     padding: 15px 0;
                 }
 
                 .skill-card {
-                    padding: 20px 15px;
+                    padding: 15px 12px;
                 }
 
                 .skill-card .skill-title {
                     font-size: 1rem;
                 }
 
+                .skill-card .skill-items li {
+                    font-size: 0.85rem;
+                }
+
+                .advantage-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 12px;
+                    padding: 12px 0;
+                }
+
                 .advantage-image-item img {
-                    border-radius: 12px;
+                    border-radius: 10px;
                 }
 
                 .timeline-horizontal {
-                    gap: 8px;
-                    padding: 20px 10px;
+                    gap: 5px;
+                    padding: 15px 8px;
+                    flex-wrap: wrap;
                 }
 
                 .timeline-item-horizontal {
-                    padding: 12px 15px;
-                    min-width: 70px;
+                    padding: 8px 10px;
+                    min-width: 55px;
                 }
 
                 .timeline-year-horizontal {
-                    font-size: 1.2rem;
-                }
-
-                .timeline-company-horizontal {
-                    font-size: 0.8rem;
-                }
-
-                .timeline-arrow {
-                    font-size: 1.2rem;
-                    padding: 0 3px;
-                }
-
-                .qr-item img {
-                    width: 120px;
-                    height: 120px;
-                }
-
-                .fullstack-container {
-                    gap: 10px;
-                    padding: 15px;
-                }
-
-                .fullstack-module {
-                    padding: 10px 12px;
-                }
-
-                .fullstack-me {
-                    padding: 15px 20px;
-                }
-
-                .fullstack-me .emoji {
-                    font-size: 32px;
-                }
-
-                .fullstack-me .title {
                     font-size: 1rem;
                 }
 
+                .timeline-company-horizontal {
+                    font-size: 0.7rem;
+                }
+
+                .timeline-arrow {
+                    font-size: 1rem;
+                    padding: 0 2px;
+                }
+
+                .fullstack-container {
+                    gap: 8px;
+                    padding: 12px;
+                    flex-wrap: wrap;
+                }
+
+                .fullstack-module {
+                    padding: 8px 10px;
+                    min-width: 55px;
+                }
+
+                .fullstack-me {
+                    padding: 10px 15px;
+                    order: -1;
+                    flex: 1;
+                    min-width: 80px;
+                }
+
+                .fullstack-me .emoji {
+                    font-size: 28px;
+                }
+
+                .fullstack-me .title {
+                    font-size: 0.95rem;
+                }
+
                 .fullstack-icon {
-                    font-size: 20px;
+                    font-size: 18px;
                 }
 
                 .fullstack-text {
-                    font-size: 0.75rem;
+                    font-size: 0.7rem;
                 }
 
                 .fullstack-arrow {
-                    font-size: 18px;
+                    font-size: 16px;
+                }
+
+                .project-subsection {
+                    padding: 15px;
+                }
+
+                .project-subsection h6 {
+                    font-size: 0.9rem;
+                }
+
+                .project-subsection p {
+                    font-size: 0.85rem;
+                }
+
+                .tech-badge {
+                    font-size: 0.75rem;
+                    padding: 5px 10px;
+                    margin: 3px;
+                }
+
+                .footer {
+                    padding: 35px 0 25px;
+                }
+
+                .footer .motto {
+                    font-size: 1.1rem;
+                }
+            }
+
+            /* Extra Small Screens (iPhone SE, etc.) */
+            @media (max-width: 375px) {
+                .name-title {
+                    font-size: 1.8rem;
+                }
+
+                .role-title {
+                    font-size: 0.9rem;
+                }
+
+                .avatar-container {
+                    width: 100px;
+                    height: 100px;
+                }
+
+                .basic-info-card {
+                    padding: 15px;
+                }
+
+                .info-item {
+                    font-size: 11px;
+                    padding: 5px 10px;
+                }
+
+                .section-title {
+                    font-size: 1.3rem;
+                }
+
+                .qr-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 10px;
+                    padding: 12px;
+                }
+
+                .qr-item img {
+                    width: 70px;
+                    height: 70px;
+                }
+
+                .qr-item .qr-label {
+                    font-size: 11px;
+                }
+
+                .skills-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 10px;
+                }
+
+                .skill-card {
+                    padding: 12px 10px;
+                }
+
+                .skill-card .skill-title {
+                    font-size: 0.95rem;
+                }
+
+                .skill-card .skill-items li {
+                    font-size: 0.8rem;
+                }
+
+                .timeline-item-horizontal {
+                    padding: 6px 8px;
+                    min-width: 50px;
+                }
+
+                .timeline-year-horizontal {
+                    font-size: 0.9rem;
+                }
+
+                .timeline-company-horizontal {
+                    font-size: 0.65rem;
+                }
+
+                .fullstack-container {
+                    gap: 6px;
+                    padding: 10px;
+                }
+
+                .fullstack-module {
+                    padding: 6px 8px;
+                }
+
+                .fullstack-me .emoji {
+                    font-size: 24px;
+                }
+
+                .fullstack-me .title {
+                    font-size: 0.85rem;
+                }
+
+                .fullstack-icon {
+                    font-size: 16px;
+                }
+
+                .fullstack-text {
+                    font-size: 0.65rem;
+                }
+
+                .footer .motto {
+                    font-size: 1rem;
+                }
+            }
+
+            /* Large Phones (iPhone Plus, etc.) */
+            @media (min-width: 414px) and (max-width: 768px) {
+                .qr-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
+
+                .qr-item img {
+                    width: 90px;
+                    height: 90px;
+                }
+
+                .skills-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 15px;
+                }
+            }
+
+            /* Print Styles - A4 */
+            @media print {
+                @page {
+                    size: A4;
+                    margin: 10mm;
+                }
+
+                body {
+                    background: white !important;
+                    font-size: 11pt;
+                    line-height: 1.4;
+                }
+
+                .container {
+                    max-width: 100%;
+                    padding: 0;
+                    margin: 0;
+                }
+
+                .header-section {
+                    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                    color-adjust: exact;
+                    padding: 40px 0 30px !important;
+                }
+
+                .avatar-container {
+                    width: 120px !important;
+                    height: 120px !important;
+                }
+
+                .name-title {
+                    font-size: 2rem !important;
+                }
+
+                .role-title {
+                    font-size: 1rem !important;
+                }
+
+                .basic-info-card {
+                    margin-top: -30px !important;
+                    padding: 25px !important;
+                }
+
+                .info-item {
+                    display: inline-block !important;
+                    margin: 5px 10px !important;
+                    padding: 5px 10px !important;
+                    font-size: 11pt !important;
+                }
+
+                .section-title {
+                    font-size: 1.4rem !important;
+                    margin: 30px 0 20px !important;
+                    page-break-before: auto;
+                    page-break-after: avoid;
+                }
+
+                .skills-grid {
+                    grid-template-columns: repeat(4, 1fr) !important;
+                    gap: 15px !important;
+                    page-break-inside: avoid;
+                }
+
+                .skill-card {
+                    padding: 15px 12px !important;
+                    page-break-inside: avoid;
+                }
+
+                .skill-card .skill-title {
+                    font-size: 1rem !important;
+                }
+
+                .skill-card .skill-items li {
+                    font-size: 0.8rem !important;
+                }
+
+                .fullstack-container {
+                    flex-wrap: nowrap !important;
+                    overflow: visible !important;
+                    page-break-inside: avoid;
+                }
+
+                .fullstack-module {
+                    padding: 10px 12px !important;
+                }
+
+                .fullstack-me .emoji {
+                    font-size: 28px !important;
+                }
+
+                .fullstack-me .title {
+                    font-size: 1rem !important;
+                }
+
+                .fullstack-text {
+                    font-size: 0.75rem !important;
+                }
+
+                .timeline-horizontal {
+                    flex-wrap: nowrap !important;
+                    overflow: visible !important;
+                    page-break-inside: avoid;
+                }
+
+                .timeline-item-horizontal {
+                    padding: 8px 10px !important;
+                    min-width: 60px !important;
+                }
+
+                .timeline-year-horizontal {
+                    font-size: 1rem !important;
+                }
+
+                .timeline-company-horizontal {
+                    font-size: 0.7rem !important;
+                }
+
+                .timeline-arrow {
+                    font-size: 1rem !important;
+                }
+
+                .qr-grid {
+                    grid-template-columns: repeat(4, 1fr) !important;
+                    gap: 15px !important;
+                    page-break-inside: avoid;
+                }
+
+                .qr-item img {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+
+                .qr-item .qr-label {
+                    font-size: 0.8rem !important;
+                }
+
+                .work-card {
+                    page-break-inside: avoid;
+                    margin-bottom: 15px !important;
+                    padding: 20px !important;
+                }
+
+                .work-card .company-title {
+                    font-size: 1.1rem !important;
+                }
+
+                .project-subsection {
+                    padding: 15px !important;
+                }
+
+                .tech-badge {
+                    font-size: 0.75rem !important;
+                    padding: 5px 10px !important;
+                    margin: 3px !important;
+                }
+
+                .footer {
+                    margin-top: 40px !important;
+                    padding: 30px 0 20px !important;
+                }
+
+                .footer .motto {
+                    font-size: 1.2rem !important;
+                }
+
+                .fullstack-arrow {
+                    animation: none !important;
+                }
+
+                a {
+                    text-decoration: none !important;
+                    color: #2d3748 !important;
+                }
+
+                .advantage-grid {
+                    display: none !important;
                 }
             }
         </style>
