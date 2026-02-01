@@ -3,30 +3,26 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url(NotoSansSC-300.woff2) format('woff2'),
-       url(NotoSansSC-300.ttf) format('truetype');
+  src: url(NotoSansSC-300.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(NotoSansSC-400.woff2) format('woff2'),
-       url(NotoSansSC-400.ttf) format('truetype');
+  src: url(NotoSansSC-400.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(NotoSansSC-500.woff2) format('woff2'),
-       url(NotoSansSC-500.ttf) format('truetype');
+  src: url(NotoSansSC-500.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Noto Sans SC';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url(NotoSansSC-700.woff2) format('woff2'),
-       url(NotoSansSC-700.ttf) format('truetype');
+  src: url(NotoSansSC-700.ttf) format('truetype');
 }
