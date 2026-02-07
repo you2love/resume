@@ -391,6 +391,29 @@
                 color: var(--secondary-color);
             }
 
+            /* Wordcloud Container */
+            .wordcloud-container {
+                background: white;
+                border-radius: 16px;
+                padding: 30px;
+                box-shadow: var(--card-shadow);
+                text-align: center;
+                overflow: hidden;
+            }
+
+            .wordcloud-image {
+                width: 100%;
+                max-width: 1000px;
+                height: auto;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .wordcloud-image:hover {
+                transform: scale(1.02);
+                box-shadow: 0 15px 50px rgba(102, 126, 234, 0.2);
+            }
+
             /* Fullstack Container */
             .fullstack-section {
                 padding: 30px 0;
@@ -926,6 +949,10 @@
                     margin: 3px;
                 }
 
+                .wordcloud-container {
+                    padding: 18px;
+                }
+
                 .footer {
                     padding: 35px 0 25px;
                 }
@@ -1031,6 +1058,10 @@
 
                 .fullstack-text {
                     font-size: 0.65rem;
+                }
+
+                .wordcloud-container {
+                    padding: 15px;
                 }
 
                 .footer .motto {
@@ -1246,6 +1277,18 @@
                     animation: none !important;
                     flex-shrink: 0 !important;
                     margin: 0 2px !important;
+                }
+
+                /* Wordcloud Container */
+                .wordcloud-container {
+                    padding: 12px !important;
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                    page-break-inside: avoid;
+                }
+
+                .wordcloud-image {
+                    max-width: 100% !important;
                 }
 
                 /* Timeline */
@@ -2298,6 +2341,14 @@
                         </a>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Skills Wordcloud -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-cloud"></i> 技能词云</h2>
+            <div class="wordcloud-container">
+                <img src="wordcloud_color.png" alt="技能词云" class="wordcloud-image" />
             </div>
         </section>
     </body>
