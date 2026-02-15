@@ -1957,13 +1957,50 @@
 
                 /* Header Section */
                 .header-section {
-                    background: linear-gradient(
-                        135deg,
-                        #667eea 0%,
-                        #764ba2 100%
-                    ) !important;
-                    padding: 20px 0 18px !important;
+                    background: white !important;
+                    color: black !important;
+                    padding: 15px 0 !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 1px solid #ccc !important;
                     page-break-after: avoid;
+                }
+                
+                .header-content {
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                    gap: 0 !important;
+                    max-width: 100% !important;
+                    margin: 0 !important;
+                    padding: 0 !important;
+                }
+
+                .header-main {
+                    flex: 0 1 40% !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                }
+
+                .avatar-wrapper {
+                    flex: 0 1 55% !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    align-items: center !important;
+                    gap: 15px !important;
+                }
+                
+                .header-section .name-title {
+                    color: black !important;
+                    font-size: 1.8rem !important;
+                }
+                
+                .header-section .subtitle {
+                    color: #4a5568 !important;
+                }
+                
+                .header-section .info-item {
+                    color: black !important;
                 }
 
                 .avatar-container {
