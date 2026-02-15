@@ -1064,6 +1064,26 @@
                     padding: 15px;
                 }
 
+                /* New table styles for mobile */
+                .exp-summary-table,
+                .skills-matrix,
+                .impact-table {
+                    display: block;
+                    overflow-x: auto;
+                }
+
+                .achievement-stats {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                .stat-number {
+                    font-size: 1.5rem;
+                }
+
+                .timeline-chart {
+                    display: none;
+                }
+
                 .footer .motto {
                     font-size: 1rem;
                 }
@@ -1084,6 +1104,282 @@
                     grid-template-columns: repeat(2, 1fr);
                     gap: 15px;
                 }
+            }
+
+            /* Work Experience Tables */
+            .exp-summary-table {
+                width: 100%;
+                border-collapse: collapse;
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 30px;
+            }
+
+            .exp-summary-table thead {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .exp-summary-table th {
+                padding: 16px 12px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 0.9rem;
+            }
+
+            .exp-summary-table td {
+                padding: 14px 12px;
+                border-bottom: 1px solid #edf2f7;
+                font-size: 0.85rem;
+                vertical-align: top;
+            }
+
+            .exp-summary-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .exp-summary-table tr:hover {
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+            }
+
+            .company-link {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .company-link:hover {
+                color: var(--secondary-color);
+                text-decoration: underline;
+            }
+
+            .duration-badge {
+                display: inline-block;
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+                color: var(--primary-color);
+                padding: 4px 10px;
+                border-radius: 12px;
+                font-size: 0.75rem;
+                font-weight: 500;
+            }
+
+            .tech-stack-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+            }
+
+            .tech-stack-list .tech-badge {
+                font-size: 0.7rem;
+                padding: 3px 8px;
+                margin: 0;
+            }
+
+            /* Skills Matrix Table */
+            .skills-matrix {
+                width: 100%;
+                border-collapse: collapse;
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 30px;
+            }
+
+            .skills-matrix thead {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .skills-matrix th {
+                padding: 14px 10px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 0.85rem;
+            }
+
+            .skills-matrix td {
+                padding: 10px;
+                border-bottom: 1px solid #edf2f7;
+                text-align: center;
+                font-size: 0.8rem;
+            }
+
+            .skills-matrix tr:last-child td {
+                border-bottom: none;
+            }
+
+            .skill-level {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                border-radius: 50%;
+                font-size: 0.7rem;
+                font-weight: 600;
+            }
+
+            .skill-level.high {
+                background: linear-gradient(135deg, #667eea, #764ba2);
+                color: white;
+            }
+
+            .skill-level.medium {
+                background: linear-gradient(135deg, #ff9f43, #ff7730);
+                color: white;
+            }
+
+            .skill-level.low {
+                background: #e2e8f0;
+                color: #718096;
+            }
+
+            /* Achievement Stats */
+            .achievement-stats {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .stat-card {
+                background: white;
+                border-radius: 16px;
+                padding: 20px;
+                text-align: center;
+                box-shadow: var(--card-shadow);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .stat-card::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 4px;
+                background: var(--bg-gradient);
+            }
+
+            .stat-number {
+                font-size: 2rem;
+                font-weight: 700;
+                background: var(--bg-gradient);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .stat-label {
+                font-size: 0.85rem;
+                color: #718096;
+                margin-top: 5px;
+            }
+
+            /* Timeline Chart */
+            .timeline-chart {
+                background: white;
+                border-radius: 16px;
+                padding: 25px;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 30px;
+            }
+
+            .timeline-chart-title {
+                font-size: 1.1rem;
+                font-weight: 600;
+                color: #2d3748;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .timeline-bar {
+                position: relative;
+                height: 60px;
+                background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+                border-radius: 30px;
+                margin: 20px 0;
+            }
+
+            .timeline-bar-item {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 0.8rem;
+                font-weight: 500;
+                color: white;
+                white-space: nowrap;
+                cursor: pointer;
+                transition: all 0.3s;
+            }
+
+            .timeline-bar-item:hover {
+                transform: translateY(-50%) scale(1.05);
+                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            .timeline-bar-item.company1 { background: linear-gradient(135deg, #667eea, #764ba2); left: 0%; }
+            .timeline-bar-item.company2 { background: linear-gradient(135deg, #ff9f43, #ff7730); left: 25%; }
+            .timeline-bar-item.company3 { background: linear-gradient(135deg, #00d2ff, #3a7bd5); left: 45%; }
+            .timeline-bar-item.company4 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); left: 58%; }
+            .timeline-bar-item.company5 { background: linear-gradient(135deg, #00b894, #55efc4); left: 72%; }
+
+            .timeline-years {
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px;
+                font-size: 0.75rem;
+                color: #718096;
+            }
+
+            /* Project Impact Table */
+            .impact-table {
+                width: 100%;
+                border-collapse: collapse;
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 30px;
+            }
+
+            .impact-table thead {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .impact-table th {
+                padding: 14px 10px;
+                text-align: left;
+                font-weight: 600;
+                font-size: 0.85rem;
+            }
+
+            .impact-table td {
+                padding: 12px 10px;
+                border-bottom: 1px solid #edf2f7;
+                font-size: 0.8rem;
+            }
+
+            .impact-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .impact-metric {
+                display: inline-flex;
+                align-items: center;
+                gap: 5px;
+                color: var(--primary-color);
+                font-weight: 500;
+            }
+
+            .impact-metric i {
+                font-size: 0.9rem;
             }
 
             /* Print Styles - A4 */
@@ -1436,6 +1732,96 @@
                     display: none !important;
                 }
 
+                /* New tables print styles */
+                .achievement-stats {
+                    display: grid !important;
+                    grid-template-columns: repeat(4, 1fr) !important;
+                    gap: 8px !important;
+                    page-break-inside: avoid;
+                }
+
+                .stat-card {
+                    padding: 10px !important;
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                }
+
+                .stat-number {
+                    font-size: 1.2rem !important;
+                }
+
+                .stat-label {
+                    font-size: 0.7rem !important;
+                }
+
+                .timeline-chart {
+                    display: none !important;
+                }
+
+                .exp-summary-table {
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                    page-break-inside: avoid;
+                }
+
+                .exp-summary-table th {
+                    padding: 10px 8px !important;
+                    font-size: 0.75rem !important;
+                }
+
+                .exp-summary-table td {
+                    padding: 8px 8px !important;
+                    font-size: 0.65rem !important;
+                }
+
+                .exp-summary-table .tech-badge {
+                    font-size: 0.55rem !important;
+                    padding: 2px 4px !important;
+                }
+
+                .skills-matrix {
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                    page-break-inside: avoid;
+                }
+
+                .skills-matrix th {
+                    padding: 8px 5px !important;
+                    font-size: 0.65rem !important;
+                }
+
+                .skills-matrix td {
+                    padding: 6px 3px !important;
+                    font-size: 0.6rem !important;
+                }
+
+                .skill-level {
+                    width: 16px !important;
+                    height: 16px !important;
+                    line-height: 16px !important;
+                    font-size: 0.5rem !important;
+                }
+
+                .impact-table {
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                    page-break-inside: avoid;
+                }
+
+                .impact-table th {
+                    padding: 8px 6px !important;
+                    font-size: 0.7rem !important;
+                }
+
+                .impact-table td {
+                    padding: 6px 6px !important;
+                    font-size: 0.65rem !important;
+                }
+
+                .impact-metric {
+                    font-size: 0.6rem !important;
+                }
+
                 /* Remove animations */
                 @keyframes bounce {
                     display: none;
@@ -1463,14 +1849,6 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="info-item">
-                            <i class="bi bi-person"></i>
-                            <strong>性别：</strong>男
-                        </div>
-                        <div class="info-item">
-                            <i class="bi bi-calendar3"></i>
-                            <strong>年龄：</strong>41岁
-                        </div>
-                        <div class="info-item">
                             <i class="bi bi-telephone"></i>
                             <strong>电话：</strong>18979439516
                         </div>
@@ -1478,14 +1856,6 @@
                             <i class="bi bi-envelope"></i>
                             <strong>邮箱：</strong>
                             <a href="mailto:yijunjun@163.com">yijunjun@163.com</a>
-                        </div>
-                        <div class="info-item">
-                            <i class="bi bi-briefcase"></i>
-                            <strong>经验：</strong>20余年
-                        </div>
-                        <div class="info-item">
-                            <i class="bi bi-code-slash"></i>
-                            <strong>意向：</strong>Golang&Python
                         </div>
                         <div class="info-item">
                             <i class="bi bi-currency-yen"></i>
@@ -1521,21 +1891,52 @@
             <div class="skills-grid">
                 <div class="skill-card">
                     <div class="skill-title">
+                        <i class="bi bi-server"></i>后端
+                    </div>
+                    <ul class="skill-items">
+                        <li>Golang</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title"><i class="bi bi-robot"></i>AI</div>
+                    <ul class="skill-items">
+                        <li>iflow cli</li>
+                        <li>CodeBuddy cli</li>
+                        <li>Qwen cli</li>
+                        <li>opencode cli</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-tools"></i>工具
+                    </div>
+                    <ul class="skill-items">
+                        <li>Trae | Comate | Lingma | Codebuddy</li>
+                        <li>VsCode | Sublime | Zed | Lapce</li>
+                        <li>Warp</li>
+                        <li>WireShark</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-database"></i>数据库
+                    </div>
+                    <ul class="skill-items">
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                        <li>Mongodb</li>
+                        <li>Neo4j</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
                         <i class="bi bi-palette"></i>前端
                     </div>
                     <ul class="skill-items">
                         <li>Vue</li>
                         <li>Flutter</li>
                         <li>Html|Css|Js</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-title">
-                        <i class="bi bi-server"></i>后端
-                    </div>
-                    <ul class="skill-items">
-                        <li>Golang</li>
-                        <li>Python</li>
                     </ul>
                 </div>
                 <div class="skill-card">
@@ -1558,17 +1959,6 @@
                 </div>
                 <div class="skill-card">
                     <div class="skill-title">
-                        <i class="bi bi-database"></i>数据库
-                    </div>
-                    <ul class="skill-items">
-                        <li>MySQL</li>
-                        <li>Redis</li>
-                        <li>Mongodb</li>
-                        <li>Neo4j</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-title">
                         <i class="bi bi-gear"></i>管理部署
                     </div>
                     <ul class="skill-items">
@@ -1576,28 +1966,6 @@
                         <li>Docker</li>
                         <li>K8s</li>
                         <li>Jenkins</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-title"><i class="bi bi-robot"></i>AI</div>
-                    <ul class="skill-items">
-                        <li>iflow</li>
-                        <li>CodeBuddy</li>
-                        <li>Qwen</li>
-                        <li>opencode</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-title">
-                        <i class="bi bi-tools"></i>工具
-                    </div>
-                    <ul class="skill-items">
-                        <li>VsCode</li>
-                        <li>Trae</li>
-                        <li>Sublime</li>
-                        <li>Warp</li>
-                        <li>Zed</li>
-                        <li>WireShark</li>
                     </ul>
                 </div>
             </div>
@@ -1689,247 +2057,345 @@
             </div>
         </section>
 
-        <!-- Work Experience -->
+        <!-- Work Experience Summary -->
         <section class="container">
             <h2 class="section-title">
                 <i class="bi bi-briefcase-fill"></i> 工作经历
             </h2>
 
-            <!-- 深圳道道网络科技有限公司 -->
-            <div class="work-card" id="work-2022">
-                <div class="company-title">深圳道道网络科技有限公司</div>
-                <div class="work-period">2022.04 - 2026.01</div>
-                <span class="work-position">Golang | Python</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong
-                    >高报系统、测评系统与福田区教育局学生测评项目。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-collection"></i> 核心项目</h6>
-                    <p>
-                        数据生产、数据关联、志愿推荐、报告生成、管理后台、微信小程序、微信支付
-                    </p>
+            <!-- Career Stats -->
+            <div class="achievement-stats">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">年工作经验</div>
                 </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">PaddleOCR</span>
-                        <span class="tech-badge">gRPC</span>
-                        <span class="tech-badge">Protobuf</span>
-                        <span class="tech-badge">Redis</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">Neo4j</span>
-                        <span class="tech-badge">Elasticsearch</span>
-                        <span class="tech-badge">TypeSense</span>
-                        <span class="tech-badge">Kubernetes</span>
-                        <span class="tech-badge">Docker</span>
-                        <span class="tech-badge">Nginx</span>
-                        <span class="tech-badge">FastGPT</span>
-                    </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">家公司经历</div>
                 </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <div class="achievement-item">
-                        高精度数字化处理，2小时完成单本书籍电子化
-                    </div>
-                    <div class="achievement-item">
-                        深度挖掘数据关联规则，关联准确率达95%
-                    </div>
-                    <div class="achievement-item">
-                        优化推荐算法，提升用户满意度
-                    </div>
-                    <div class="achievement-item">Pdf报告自动化批量生成</div>
-                    <div class="achievement-item">微信小程序/支付bug</div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">核心项目</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">技术方向</div>
                 </div>
             </div>
 
-            <!-- 深圳市大旺网络科技有限公司 -->
-            <div class="work-card" id="work-2017">
-                <div class="company-title">深圳市大旺网络科技有限公司</div>
-                <div class="work-period">2017.06 - 2022.04</div>
-                <span class="work-position">Golang | Python</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong
-                    >负责棋牌游戏系统的架构设计、逻辑实现与运维保障。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-collection"></i> 核心项目</h6>
-                    <p>
-                        扑克麻将游戏服务器、公共通讯服务、用户中心服务、消息队列服务、GM管理服务、运营管理后台、数据统计分析系统
-                    </p>
+            <!-- Timeline Bar Chart -->
+            <div class="timeline-chart">
+                <div class="timeline-chart-title">职业发展时间线</div>
+                <div class="timeline-bar">
+                    <div class="timeline-bar-item company1" style="width: 35%;" onclick="document.getElementById('work-2022').scrollIntoView({behavior: 'smooth'})">道道网络 (2022-2026)</div>
+                    <div class="timeline-bar-item company2" style="width: 40%;" onclick="document.getElementById('work-2017').scrollIntoView({behavior: 'smooth'})">大旺网络 (2017-2022)</div>
+                    <div class="timeline-bar-item company3" style="width: 12%;" onclick="document.getElementById('work-2016').scrollIntoView({behavior: 'smooth'})">迷雾科技 (2016-2017)</div>
+                    <div class="timeline-bar-item company4" style="width: 6%;" onclick="document.getElementById('work-2015').scrollIntoView({behavior: 'smooth'})">智度 (2015)</div>
+                    <div class="timeline-bar-item company5" style="width: 25%;" onclick="document.getElementById('work-2008').scrollIntoView({behavior: 'smooth'})">旭日电脑 (2008-2014)</div>
                 </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">Golang</span>
-                        <span class="tech-badge">TCP</span>
-                        <span class="tech-badge">Protobuf</span>
-                        <span class="tech-badge">HTTP</span>
-                        <span class="tech-badge">Vue.js</span>
-                        <span class="tech-badge">Unity3D</span>
-                        <span class="tech-badge">ET框架</span>
-                        <span class="tech-badge">Redis</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">Jenkins</span>
-                        <span class="tech-badge">Nginx</span>
-                    </div>
-                </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <div class="achievement-item">
-                        全面维护系统稳定运行，保障业务连续性
-                    </div>
-                    <div class="achievement-item">
-                        设计并实现麻将胡牌核心算法
-                    </div>
-                    <div class="achievement-item">
-                        定位并解决麻将游戏内存泄漏问题
-                    </div>
-                    <div class="achievement-item">
-                        设计并实现扑克牌型比较算法
-                    </div>
-                    <div class="achievement-item">
-                        搭建游戏服务框架，支持快速开发新游戏
-                    </div>
+                <div class="timeline-years">
+                    <span>2006</span>
+                    <span>2010</span>
+                    <span>2015</span>
+                    <span>2020</span>
+                    <span>2026</span>
                 </div>
             </div>
 
-            <!-- 深圳迷雾科技有限公司 -->
-            <div class="work-card" id="work-2016">
-                <div class="company-title">深圳迷雾科技有限公司</div>
-                <div class="work-period">2016.03 - 2017.06</div>
-                <span class="work-position">Golang | Python</span>
+            <!-- Work Experience Summary Table -->
+            <table class="exp-summary-table">
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">公司</th>
+                        <th style="width: 15%;">时间</th>
+                        <th style="width: 12%;">职位</th>
+                        <th style="width: 35%;">技术栈</th>
+                        <th style="width: 16%;">主要业绩</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="work-2022">
+                        <td><a href="#work-2022" class="company-link">深圳道道网络科技</a></td>
+                        <td><span class="duration-badge">2022.04 - 2026.01</span></td>
+                        <td>全栈工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">PaddleOCR</span>
+                                <span class="tech-badge">gRPC</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Neo4j</span>
+                                <span class="tech-badge">ES</span>
+                                <span class="tech-badge">K8s</span>
+                                <span class="tech-badge">Docker</span>
+                                <span class="tech-badge">FastGPT</span>
+                            </div>
+                        </td>
+                        <td>招生大本百分百数字化<br>高精度招录跨年关联<br>批量PDF自动化生成</td>
+                    </tr>
+                    <tr id="work-2017">
+                        <td><a href="#work-2017" class="company-link">深圳大旺网络科技</a></td>
+                        <td><span class="duration-badge">2017.06 - 2022.04</span></td>
+                        <td>全栈工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">TCP</span>
+                                <span class="tech-badge">Protobuf</span>
+                                <span class="tech-badge">HTTP</span>
+                                <span class="tech-badge">Vue.js</span>
+                                <span class="tech-badge">Unity3D</span>
+                                <span class="tech-badge">ET框架</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Jenkins</span>
+                                <span class="tech-badge">Git</span>
+                            </div>
+                        </td>
+                        <td>麻将胡牌算法<br>扑克牌型大小算法<br>游戏框架搭建</td>
+                    </tr>
+                    <tr id="work-2016">
+                        <td><a href="#work-2016" class="company-link">深圳迷雾科技</a></td>
+                        <td><span class="duration-badge">2016.03 - 2017.06</span></td>
+                        <td>后台工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Protobuf</span>
+                                <span class="tech-badge">gRPC</span>
+                                <span class="tech-badge">Beego</span>
+                                <span class="tech-badge">Echo</span>
+                                <span class="tech-badge">Consul</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Vue</span>
+                            </div>
+                        </td>
+                        <td>社交App后端<br>管理后台<br>内容监管</td>
+                    </tr>
+                    <tr id="work-2015">
+                        <td><a href="#work-2015" class="company-link">广州智度网络科技</a></td>
+                        <td><span class="duration-badge">2015.04 - 2015.11</span></td>
+                        <td>后台工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Flask</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">SQL</span>
+                                <span class="tech-badge">ECharts</span>
+                            </div>
+                        </td>
+                        <td>后台管理系统<br>数据统计分析<br>游戏包分流</td>
+                    </tr>
+                    <tr id="work-2008">
+                        <td><a href="#work-2008" class="company-link">广州旭日电脑</a></td>
+                        <td><span class="duration-badge">2008.04 - 2014.08</span></td>
+                        <td>嵌入式工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">单片机</span>
+                                <span class="tech-badge">VC++</span>
+                                <span class="tech-badge">嵌入式C</span>
+                                <span class="tech-badge">烧录芯片</span>
+                            </div>
+                        </td>
+                        <td>砸金蛋游戏<br>抓娃娃游戏<br>套牛游戏<br>打飞机游戏<br>PCB故障自动诊断</td>
+                    </tr>
+                    <tr id="work-2007">
+                        <td>深圳鸿远智欣</td>
+                        <td><span class="duration-badge">2007.03 - 2007.09</span></td>
+                        <td>嵌入式工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Delphi</span>
+                                <span class="tech-badge">C</span>
+                                <span class="tech-badge">串口通讯</span>
+                                <span class="tech-badge">并口通讯</span>
+                            </div>
+                        </td>
+                        <td>门禁系统</br>停车场系统</br>地磅自动称重<br>监控系统</td>
+                    </tr>
+                    <tr id="work-2006">
+                        <td>重庆港澳大家软件</td>
+                        <td><span class="duration-badge">2006.06 - 2007.02</span></td>
+                        <td>开发工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Delphi</span>
+                                <span class="tech-badge">C</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">串口通讯</span>
+                            </div>
+                        </td>
+                        <td>路桥收费系统</br>交通卡加密读写</td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <p class="mt-3">
-                    <strong>工作内容：</strong
-                    >负责社交App后端服务开发及前端功能实现。
-                </p>
+            <!-- Skills by Company Table -->
+            <table class="skills-matrix">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">技术方向</th>
+                        <th style="width: 14%;">道道网络</th>
+                        <th style="width: 14%;">大旺网络</th>
+                        <th style="width: 14%;">迷雾科技</th>
+                        <th style="width: 14%;">智度科技</th>
+                        <th style="width: 14%;">旭日电脑</th>
+                        <th style="width: 12%;">综合掌握</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Golang</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>MySQL/Sql Server</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Git/Docker/K8s</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟练</span></td>
+                    </tr>
+                    <tr>
+                        <td>Redis/MongoDB</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Neo4j/ES</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟悉</span></td>
+                    </tr>
+                    <tr>
+                        <td>微服务/gRPC</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Vue/Flutter</td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟练</span></td>
+                    </tr>
+                </tbody>
+            </table>
 
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">Golang</span>
-                        <span class="tech-badge">Protobuf</span>
-                        <span class="tech-badge">gRPC</span>
-                        <span class="tech-badge">Beego</span>
-                        <span class="tech-badge">Echo</span>
-                        <span class="tech-badge">Consul</span>
-                        <span class="tech-badge">Redis</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">Vue.js</span>
-                    </div>
-                </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <p>推动项目正式上线并保障系统稳定运行。</p>
-                </div>
-            </div>
-
-            <!-- 广州智度网络科技有限公司 -->
-            <div class="work-card" id="work-2015">
-                <div class="company-title">广州智度网络科技有限公司</div>
-                <div class="work-period">2015.04 - 2015.11</div>
-                <span class="work-position">Python</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong
-                    >负责公司后台管理系统及数据统计平台开发，保障业务正常运营。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">Flask</span>
-                        <span class="tech-badge">MongoDB</span>
-                        <span class="tech-badge">SQL</span>
-                        <span class="tech-badge">ECharts.js</span>
-                    </div>
-                </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <p>按时高质量完成各项开发任务。</p>
-                </div>
-            </div>
-
-            <!-- 广州旭日电脑有限公司 -->
-            <div class="work-card" id="work-2008">
-                <div class="company-title">广州旭日电脑有限公司</div>
-                <div class="work-period">2008.04 - 2014.08</div>
-                <span class="work-position">嵌入式软件工程师</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong
-                    >负责单机及连线系列游戏软件及相关配套程序开发。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">单片机</span>
-                        <span class="tech-badge">VC++</span>
-                    </div>
-                </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <p>游戏产品顺利上市销售，获得客户良好反馈。</p>
-                </div>
-            </div>
-
-            <!-- 深圳鸿远智欣 -->
-            <div class="work-card" id="work-2007">
-                <div class="company-title">深圳鸿远智欣</div>
-                <div class="work-period">2007.03 - 2007.09</div>
-                <span class="work-position">开发工程师</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong>负责门禁及停车场管理系统开发。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">Delphi</span>
-                        <span class="tech-badge">C语言</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 重庆港澳大家软件产业有限公司 -->
-            <div class="work-card" id="work-2006">
-                <div class="company-title">重庆港澳大家软件产业有限公司</div>
-                <div class="work-period">2006.06 - 2007.02</div>
-                <span class="work-position">Delphi｜SQL</span>
-
-                <p class="mt-3">
-                    <strong>工作内容：</strong>负责路桥收费系统开发。
-                </p>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-tools"></i> 技术栈</h6>
-                    <div>
-                        <span class="tech-badge">Delphi</span>
-                        <span class="tech-badge">SQL Server</span>
-                    </div>
-                </div>
-
-                <div class="project-subsection">
-                    <h6><i class="bi bi-trophy"></i> 主要业绩</h6>
-                    <p>系统稳定运行，保障收费业务正常开展。</p>
-                </div>
-            </div>
+            <!-- Project Impact Table -->
+            <h3 class="section-title" style="font-size: 1.4rem; margin-top: 40px;">
+                <i class="bi bi-graph-up"></i> 核心项目
+            </h3>
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">项目名称</th>
+                        <th style="width: 15%;">时间</th>
+                        <th style="width: 30%;">核心挑战</th>
+                        <th style="width: 35%;">解决方案与成果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>高考填报志愿</strong></td>
+                        <td><span class="duration-badge">2022-2026</span></td>
+                        <td>OCR误识别</br>文本粘连</br>图片倾斜缺漏</br>招录关联</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 前缀树+最小编辑距离</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> AC自动机发现错误</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 霍夫变换自动旋转</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 关键属性+文本相似度</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>学习力评估</strong></td>
+                        <td><span class="duration-badge">2025-2026</span></td>
+                        <td>需求变化快</br>PDF生成耗时</br>报告分页</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 缩小改动范围</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 静动分离</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 有限状态自动机生成文本</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 无界面自动化</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>游戏公共服务</strong></td>
+                        <td><span class="duration-badge">2018-2022</span></td>
+                        <td>高并发</br>实时通讯</br>状态管理</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 登录认证</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 在线状态上报</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 战绩数据上报</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏回放</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>麻将/扑克游戏</strong></td>
+                        <td><span class="duration-badge">2017-2022</span></td>
+                        <td>胡牌算法</br>牌型比较</br>内存泄漏</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 麻将胡牌算法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 扑克比较算法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 内存泄漏解决</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏框架开发</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python加密/反编译</strong></td>
+                        <td><span class="duration-badge">2015-2016</span></td>
+                        <td>代码保护</br>字节码逆向</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 字节码研究</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 代码加密实现</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 反编译实现</span><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
         <!-- Project Experience -->
