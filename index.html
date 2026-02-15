@@ -7,7 +7,7 @@
         <link rel="icon" type="image/x-icon" href="favicon.ico">
         <link rel="icon" type="image/png" href="favicon.png">
         <link href="bootstrap.min.css" rel="stylesheet" />
-        <link href="bootstrap-icons.css" rel="stylesheet" />
+        <link href="bootstrap-icons-full.css" rel="stylesheet" />
         <link href="noto-sans-sc.css" rel="stylesheet" />
         <style>
             :root {
@@ -1463,6 +1463,81 @@
                 font-size: 0.9rem;
             }
 
+            /* Project Table */
+            .project-table {
+                width: 100%;
+                border-collapse: collapse;
+                background: white;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: var(--card-shadow);
+                margin-bottom: 30px;
+            }
+
+            .project-table thead {
+                background: var(--bg-gradient);
+                color: white;
+            }
+
+            .project-table th {
+                padding: 14px 10px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 0.85rem;
+            }
+
+            .project-table td {
+                padding: 12px 10px;
+                border-bottom: 1px solid #edf2f7;
+                font-size: 0.8rem;
+                text-align: center;
+                vertical-align: top;
+            }
+
+            .project-table tr:last-child td {
+                border-bottom: none;
+            }
+
+            .project-table tr:hover {
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+            }
+
+            .project-name {
+                font-weight: 600;
+                color: var(--primary-color);
+                font-size: 0.9rem;
+            }
+
+            .project-time {
+                font-size: 0.75rem;
+                color: #718096;
+                white-space: nowrap;
+            }
+
+            .project-category {
+                display: inline-block;
+                padding: 3px 10px;
+                border-radius: 12px;
+                font-size: 0.7rem;
+                font-weight: 500;
+                margin: 2px;
+            }
+
+            .project-category.edu {
+                background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+                color: #667eea;
+            }
+
+            .project-category.game {
+                background: linear-gradient(135deg, rgba(255, 159, 67, 0.15), rgba(255, 119, 48, 0.15));
+                color: #ff7730;
+            }
+
+            .project-category.tool {
+                background: linear-gradient(135deg, rgba(0, 184, 148, 0.15), rgba(85, 239, 196, 0.15));
+                color: #00b894;
+            }
+
             /* Print Styles - A4 */
             @media print {
                 @page {
@@ -1935,6 +2010,35 @@
 
                 .impact-metric {
                     font-size: 0.6rem !important;
+                }
+
+                .project-table {
+                    box-shadow: none !important;
+                    border: 1px solid #e2e8f0 !important;
+                    page-break-inside: avoid;
+                }
+
+                .project-table th {
+                    padding: 8px 5px !important;
+                    font-size: 0.65rem !important;
+                }
+
+                .project-table td {
+                    padding: 6px 5px !important;
+                    font-size: 0.6rem !important;
+                }
+
+                .project-name {
+                    font-size: 0.7rem !important;
+                }
+
+                .project-time {
+                    font-size: 0.55rem !important;
+                }
+
+                .project-category {
+                    font-size: 0.5rem !important;
+                    padding: 2px 4px !important;
                 }
 
                 /* Remove animations */
@@ -2467,14 +2571,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <td><strong>麻将/扑克游戏</strong></td>
+                        <td><strong>地方麻将/扑克</strong></td>
                         <td><span class="duration-badge">2017-2022</span></td>
                         <td>胡牌算法</br>牌型比较</br>内存泄漏</td>
                         <td>
                             <span class="impact-metric"><i class="bi bi-check-circle"></i> 麻将胡牌算法</span><br>
                             <span class="impact-metric"><i class="bi bi-check-circle"></i> 扑克比较算法</span><br>
                             <span class="impact-metric"><i class="bi bi-check-circle"></i> 内存泄漏解决</span><br>
-                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏框架开发</span>
                         </td>
                     </tr>
                     <tr>
@@ -2494,275 +2597,149 @@
         <!-- Project Experience -->
         <section class="container">
             <h2 class="section-title">
-                <i class="bi bi-diagram-3"></i> 项目经历
+                <i class="bi bi-diagram-3"></i> 其他项目
             </h2>
 
-            <div class="work-card">
-                <div class="company-title">高考填报志愿</div>
-                <div class="work-period">
-                    2022.04 - 2026.01 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>
-                    为高考学生提供智能志愿服务。
-                </p>
-                <p>
-                    <strong>核心功能：</strong>
-                    利用OCR和规则实现纸质数字化、本年数据与历年数据的关联、依据考生智能推荐适配院校与专业
-                </p>
-                <p>
-                    <strong>技术栈：</strong>
-                    Golang、Protobuf、MySQL、Redis、MongoDB、HTTP、gRPC、Elasticsearch、TypeSense
-                </p>
-                <p>
-                    <strong>主要业绩：</strong>
-                    <div class="achievement-item">
-                        OCR误识别:因为院校名，专业名都是有限集合.前缀树确定错误位置，最小编辑距离提示候选值.精确发现错误,加速修正速度.
-                    </div>
-                    <div class="achievement-item">
-                        文本粘连:因为专业介绍很少出现院校名.采用AC自动机发现及指出可能错误
-                    </div>
-                    <div class="achievement-item">
-                        扫描图片倾斜:霍夫变换找直线，自动旋转+人工扭正解决
-                    </div>
-                    <div class="achievement-item">
-                        扫描图片缺漏倒混重:书本页码连续不重复+内容连续性解决
-                    </div>
-                    <div class="achievement-item">
-                        图片表格线错漏:表格相似性+KMeans自动分类+业务规则推断解决
-                    </div>
-                    <div class="achievement-item">
-                        招生跨年关联:统一院校名/专业名+内容相似算法+先院校再专业+属性相同(多对1或多对对)解决
-                    </div>
-                    <div class="achievement-item">
-                        招生录取关联:代码唯一+院校名/专业名+先院校再专业+属性相同(多对1或多对多)解决
-                    </div>
-                    <div class="achievement-item">
-                        智能推荐:约束排除+分数区间(冲稳保难垫)+专业协同+同分协同+规划师人工干预解决
-                    </div>
-                </p>
-            </div>
-            <div class="work-card">
-                <div class="company-title">中小学生学习力评估</div>
-                <div class="work-period">
-                    2025.04 - 2026.01 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>
-                    给福田区教育局全区中小学生做学习力测评。
-                </p>
-                <p>
-                    <strong>核心功能：</strong>
-                    智能出题、能力评估、报告生成
-                </p>
-                <p>
-                    <strong>技术栈：</strong>
-                    Python、MySQL、Redis、MongoDB、HTTP
-                </p>
-                <p>
-                    <strong>主要业绩：</strong>
-                    <div class="achievement-item">
-                        需求变化快:按章节+范围(学校/年级/学生),缩小改动范围
-                    </div>
-                    <div class="achievement-item">
-                        pdf生成费时:区别静态数据和动态数据+建立网页查看效果，后生成pdf
-                    </div>
-                    <div class="achievement-item">
-                        数值到文本:有限状态自动机，确定状态从而产生确定文本
-                    </div>
-                    <div class="achievement-item">
-                        pdf打印分页:固定A4页，通过空白，打印之前提示大段空白
-                    </div>
-                    <div class="achievement-item">
-                        图文并茂:引入图表渲染，一目了然
-                    </div>
-                    <div class="achievement-item">
-                        学生多:自动化批量，省去人工干预
-                    </div>
-                </p>
-            </div>
-            <div class="work-card">
-                <div class="company-title">成长规划系统</div>
-                <div class="work-period">
-                    2023.04 - 2026.01 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>
-                    帮助孩长智能精准规划成长路线
-                </p>
-                <p>
-                    <strong>核心功能：</strong>
-                    组合题目、报告生成、专家解读、执行监督
-                </p>
-                <p>
-                    <strong>技术栈：</strong>
-                    Golang、MySQL、Redis、gRPC、HTTP、Elasticsearch、TypeSense
-                </p>
-                <p>
-                    <strong>主要业绩：</strong>
-                    <div class="achievement-item">
-                        会议/教室一起参与:每个场合生成一个同屏码，扫同一个同屏码就是一个参与
-                    </div>
-                    <div class="achievement-item">
-                        定向或非定向活动:邀请码绑定信息，省去活动信息填写
-                    </div>
-                    <div class="achievement-item">
-                        临时接管机构:通过黑马帐号,成机构短时间管理员
-                    </div>
-                    <div class="achievement-item">
-                        全天候审核:企业微信+后台系统工作流，加速响应过程
-                    </div>
-                    <div class="achievement-item">
-                        pdf可选:应对不同客户特别需求
-                    </div>
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">
-                    宜黄/乐安/永丰扑克 / 崇仁/乐安/永丰麻将
-                </div>
-                <div class="work-period">
-                    2017.12 - 2022.04 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>地方棋牌游戏开发与维护。
-                </p>
-                <p>
-                    <strong>核心工作：</strong
-                    >服务端开发、通信协议制定、机器人陪打功能、线上部署、运营监控
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >正式上线后用户反馈良好，系统稳定可靠。
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">聊聊棋牌 - 公共服务</div>
-                <div class="work-period">
-                    2018.10 - 2022.04 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong
-                    >为棋牌游戏项目提供统一的公共服务支撑。
-                </p>
-                <p>
-                    <strong>核心功能：</strong
-                    >玩家登录认证、在线状态上报、游戏回放记录、房间号分配管理、消息推送服务、战绩数据上报、房卡扣费系统、群聊号分配、LBS距离计算、游戏参数配置
-                </p>
-                <p>
-                    <strong>技术栈：</strong
-                    >Golang、Protobuf、MySQL、Redis、HTTP
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >系统上线后稳定运行，有力保障游戏正常运转。
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">聊聊棋牌 - 用户服</div>
-                <div class="work-period">
-                    2017.12 - 2022.04 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong
-                    >实现游戏非逻辑相关的用户业务功能。
-                </p>
-                <p>
-                    <strong>技术栈：</strong
-                    >Golang、Protobuf、MySQL、Redis、HTTP、阿里云OSS、容联云通讯、阿里云短信服务、H5页面开发
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >正式上线后运行稳定高效，成为游戏核心服务之一。
-                </p>
-            </div>
-
-            
-
-            <div class="work-card">
-                <div class="company-title">聊聊棋牌 - 运营后台</div>
-                <div class="work-period">2018.11 - 2022.04 | 负责人</div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>面向运营人员的管理后台系统。
-                </p>
-                <p>
-                    <strong>技术栈：</strong
-                    >Golang、Vue.js、HTTP、Protobuf、MySQL、Redis、ECharts
-                </p>
-                <p>
-                    <strong>主要业绩：</strong>正式上线后有力支撑产品运营需求。
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">聊聊棋牌 - 定时统计</div>
-                <div class="work-period">
-                    2018.11 - 2022.04 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>游戏数据定时统计分析系统。
-                </p>
-                <p>
-                    <strong>技术栈：</strong
-                    >Golang、MySQL、Redis、HTTP、邮件通知
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >为运营后台提供数据统计展示，帮助运营人员掌握系统各项指标。
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">斗地主</div>
-                <div class="work-period">2018.04 - 2022.04 | 服务端</div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>经典斗地主棋牌游戏服务端开发。
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >正式上线后日活跃用户较多，用户反馈良好。
-                </p>
-            </div>
-
-            <div class="work-card">
-                <div class="company-title">Python加密/反编译</div>
-                <div class="work-period">2015.08 - 2016.02 | 负责人</div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>Python代码加密与反编译技术研究。
-                </p>
-                <p>
-                    <strong>核心工作：</strong
-                    >深入研究Python字节码机制、实现Python代码加密方案、实现Python反编译功能
-                </p>
-                <p>
-                    <strong>主要业绩：</strong>全程独立完成项目，达到预期目标。
-                </p>
-            </div>
+            <!-- Project Table -->
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">项目名称</th>
+                        <th style="width: 37%;">技术栈</th>
+                        <th style="width: 45%;">核心成果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="project-name">成长规划</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">gRPC</span>
+                            <span class="tech-badge">ES</span>
+                            <span class="tech-badge">Redis</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 同屏码</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 定向邀请码</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 临时接管机构</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 企业微信自动开机构</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-公共服务</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Protobuf</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">MySQL</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 统一登录</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 战绩管理</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 房卡扣费</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-用户服</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Protobuf</span>
+                            <span class="tech-badge">OSS</span>
+                            <span class="tech-badge">短信</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 注册登录</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 短信通知</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 文件存储</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 日志记录</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-运营后台</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Vue.js</span>
+                            <span class="tech-badge">ECharts</span>
+                            <span class="tech-badge">MySQL</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 统计分析</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 充值管理</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏GM</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-定时统计</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Redis</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 日报/周报/图表</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 充值/游戏规律挖掘</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 异常状态邮件通知</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">斗地主/跑得快</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">TCP</span>
+                            <span class="tech-badge">Protobuf</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 通用性扑克玩法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 自动辅助出牌</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 牌型提示助手</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 机器人陪玩</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
 
-        <!-- Education -->
+        <!-- Education & Certificates -->
         <section class="container">
-            <h2 class="section-title">
-                <i class="bi bi-mortarboard-fill"></i> 教育经历
+            <h2 class="section-title" style="font-size: 1.4rem;">
+                <i class="bi bi-mortarboard-fill"></i> 教育经历 & 资格证书
             </h2>
             <div class="work-card">
-                <div class="company-title">重庆理工大学</div>
-                <div class="work-period">2002 - 2006</div>
-                <span class="work-position">本科 | 材料成型及控制工程</span>
-            </div>
-        </section>
-
-        <!-- Certificates -->
-        <section class="container">
-            <h2 class="section-title">
-                <i class="bi bi-award-fill"></i> 资格证书
-            </h2>
-            <div class="work-card">
-                <div class="achievement-item">软件设计师</div>
-                <div class="achievement-item">程序员</div>
+                <div class="row">
+                    <div class="col-md-6" style="border-right: 1px solid #edf2f7;">
+                        <div class="company-title" style="font-size: 1.2rem;">
+                            <img src="cqut_logo.svg" alt="重庆理工大学" style="width: 36px; height: 36px; vertical-align: middle; margin-right: 10px;">重庆理工大学
+                        </div>
+                        <div class="work-period" style="font-size: 1rem; margin: 8px 0;">2002 - 2006</div>
+                        <span class="work-position" style="font-size: 1rem;">
+                            <img src="gear_icon.svg" alt="专业" style="width: 22px; height: 22px; vertical-align: middle; margin-right: 6px;">材料成型及控制工程
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row" style="margin-top: 12px;">
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1rem;">
+                                    <img src="soft_cert.svg" alt="软件设计师" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">软件设计师
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1rem;">
+                                    <img src="programmer_cert.svg" alt="程序员" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">程序员
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1rem;">
+                                    <img src="g2_small.jpeg" alt="毕业证" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">毕业证
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1rem;">
+                                    <img src="d2_small.jpg" alt="学位证" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">学位证
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
