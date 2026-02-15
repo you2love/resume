@@ -626,16 +626,9 @@
             }
 
             /* Timeline Horizontal */
+            /* Hide old timeline, use new merged version */
             .timeline-horizontal {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 6px;
-                padding: 25px 15px;
-                background: white;
-                border-radius: 16px;
-                box-shadow: var(--card-shadow);
+                display: none;
             }
 
             .timeline-item-horizontal {
@@ -1124,7 +1117,7 @@
 
             .exp-summary-table th {
                 padding: 16px 12px;
-                text-align: left;
+                text-align: center;
                 font-weight: 600;
                 font-size: 0.9rem;
             }
@@ -1134,6 +1127,7 @@
                 border-bottom: 1px solid #edf2f7;
                 font-size: 0.85rem;
                 vertical-align: top;
+                text-align: center;
             }
 
             .exp-summary-table tr:last-child td {
@@ -1279,7 +1273,7 @@
                 margin-top: 5px;
             }
 
-            /* Timeline Chart */
+            /* Timeline Chart - 合并版 */
             .timeline-chart {
                 background: white;
                 border-radius: 16px;
@@ -1289,52 +1283,138 @@
             }
 
             .timeline-chart-title {
-                font-size: 1.1rem;
-                font-weight: 600;
+                font-size: 1.2rem;
+                font-weight: 700;
                 color: #2d3748;
-                margin-bottom: 20px;
+                margin-bottom: 25px;
                 text-align: center;
             }
 
             .timeline-bar {
                 position: relative;
-                height: 60px;
-                background: linear-gradient(90deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
-                border-radius: 30px;
-                margin: 20px 0;
+                height: 70px;
+                background: linear-gradient(90deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+                border-radius: 12px;
+                margin: 25px 0;
             }
 
             .timeline-bar-item {
                 position: absolute;
                 top: 50%;
                 transform: translateY(-50%);
-                padding: 8px 15px;
-                border-radius: 20px;
-                font-size: 0.8rem;
-                font-weight: 500;
+                padding: 10px 18px;
+                border-radius: 10px;
+                font-size: 0.9rem;
+                font-weight: 600;
                 color: white;
                 white-space: nowrap;
                 cursor: pointer;
                 transition: all 0.3s;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                min-height: 50px;
             }
 
             .timeline-bar-item:hover {
                 transform: translateY(-50%) scale(1.05);
-                box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
             }
 
-            .timeline-bar-item.company1 { background: linear-gradient(135deg, #667eea, #764ba2); left: 0%; }
-            .timeline-bar-item.company2 { background: linear-gradient(135deg, #ff9f43, #ff7730); left: 25%; }
-            .timeline-bar-item.company3 { background: linear-gradient(135deg, #00d2ff, #3a7bd5); left: 45%; }
-            .timeline-bar-item.company4 { background: linear-gradient(135deg, #6c5ce7, #a29bfe); left: 58%; }
-            .timeline-bar-item.company5 { background: linear-gradient(135deg, #00b894, #55efc4); left: 72%; }
+            .timeline-bar-item .company-name {
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+
+            .timeline-bar-item .company-years {
+                font-size: 0.75rem;
+                opacity: 0.9;
+                display: none;
+            }
+
+            .timeline-bar-item.endpoint {
+                background: linear-gradient(135deg, #2d3436, #636e72);
+                font-size: 0.85rem;
+                min-width: 55px;
+                cursor: default;
+            }
+
+            .timeline-bar-item.endpoint:hover {
+                transform: translateY(-50%) scale(1);
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            }
+
+            .timeline-bar-item.endpoint-start {
+                left: auto;
+                right: 0%;
+                margin-right: 0;
+            }
+
+            .timeline-bar-item.endpoint-end {
+                right: auto;
+                left: 0%;
+            }
+
+            .timeline-bar-item.company1 { 
+                background: linear-gradient(135deg, #667eea, #764ba2); 
+                left: 5%;
+                width: 20%;
+            }
+            .timeline-bar-item.company2 { 
+                background: linear-gradient(135deg, #ff9f43, #ff7730); 
+                left: 25%;
+                width: 22%;
+            }
+            .timeline-bar-item.company3 { 
+                background: linear-gradient(135deg, #00d2ff, #3a7bd5); 
+                left: 47%;
+                width: 5%;
+            }
+            .timeline-bar-item.company4 { 
+                background: linear-gradient(135deg, #6c5ce7, #a29bfe); 
+                left: 52%;
+                width: 3%;
+            }
+            .timeline-bar-item.company5 { 
+                background: linear-gradient(135deg, #00b894, #55efc4); 
+                left: 55%;
+                width: 24%;
+            }
+            .timeline-bar-item.company6 { 
+                background: linear-gradient(135deg, #fd79a8, #e84393); 
+                left: 79%;
+                width: 9%;
+            }
+            .timeline-bar-item.company7 { 
+                background: linear-gradient(135deg, #fdcb6e, #f39c12); 
+                left: 86%;
+                width: 9%;
+            }
 
             .timeline-years {
                 display: flex;
                 justify-content: space-between;
-                padding: 0 10px;
-                font-size: 0.75rem;
+                padding: 0 15px;
+                font-size: 0.8rem;
                 color: #718096;
+                margin-top: 10px;
+            }
+
+            .timeline-years span {
+                position: relative;
+            }
+
+            .timeline-years span::before {
+                content: "";
+                position: absolute;
+                top: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1px;
+                height: 8px;
+                background: #cbd5e0;
             }
 
             /* Project Impact Table */
@@ -1355,7 +1435,7 @@
 
             .impact-table th {
                 padding: 14px 10px;
-                text-align: left;
+                text-align: center;
                 font-weight: 600;
                 font-size: 0.85rem;
             }
@@ -1364,6 +1444,7 @@
                 padding: 12px 10px;
                 border-bottom: 1px solid #edf2f7;
                 font-size: 0.8rem;
+                text-align: center;
             }
 
             .impact-table tr:last-child td {
@@ -1755,7 +1836,41 @@
                 }
 
                 .timeline-chart {
-                    display: none !important;
+                    display: block !important;
+                    margin-bottom: 15px !important;
+                    page-break-inside: avoid;
+                    padding: 10px !important;
+                }
+
+                .timeline-chart-title {
+                    font-size: 0.9rem !important;
+                    margin-bottom: 10px !important;
+                }
+
+                .timeline-bar {
+                    height: 40px !important;
+                    margin: 10px 0 !important;
+                }
+
+                .timeline-bar-item {
+                    padding: 6px 8px !important;
+                    font-size: 0.65rem !important;
+                    min-height: 30px !important;
+                }
+
+                .timeline-bar-item .company-name {
+                    font-size: 0.7rem !important;
+                }
+
+                .timeline-years {
+                    font-size: 0.6rem !important;
+                    margin-top: 5px !important;
+                }
+
+                .timeline-bar-item.endpoint {
+                    font-size: 0.6rem !important;
+                    min-width: 35px !important;
+                    padding: 4px 6px !important;
                 }
 
                 .exp-summary-table {
@@ -2004,59 +2119,6 @@
             </div>
         </section>
 
-        <!-- Career Timeline -->
-        <section class="container">
-            <h2 class="section-title">
-                <i class="bi bi-clock-history"></i> 职业时间线
-            </h2>
-            <div class="timeline-horizontal">
-                <div class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">至今</div>
-                    <div class="timeline-company-horizontal">离职</div>
-                </div>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2022" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2022</div>
-                    <div class="timeline-company-horizontal">道道</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2017" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2017</div>
-                    <div class="timeline-company-horizontal">大旺</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2016" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2016</div>
-                    <div class="timeline-company-horizontal">迷雾</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2015" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2015</div>
-                    <div class="timeline-company-horizontal">智度</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2008" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2008</div>
-                    <div class="timeline-company-horizontal">旭日</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2007" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2007</div>
-                    <div class="timeline-company-horizontal">鸿远</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <a href="#work-2006" class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2006</div>
-                    <div class="timeline-company-horizontal">港澳</div>
-                </a>
-                <div class="timeline-arrow">←</div>
-                <div class="timeline-item-horizontal">
-                    <div class="timeline-year-horizontal">2006</div>
-                    <div class="timeline-company-horizontal">毕业</div>
-                </div>
-            </div>
-        </section>
-
         <!-- Work Experience Summary -->
         <section class="container">
             <h2 class="section-title">
@@ -2083,22 +2145,61 @@
                 </div>
             </div>
 
-            <!-- Timeline Bar Chart -->
+            <!-- Timeline Bar Chart - 合并版 -->
+            <h2 class="section-title">
+                    <i class="bi bi-clock-history"></i> 职业时间线
+                </h2>
             <div class="timeline-chart">
-                <div class="timeline-chart-title">职业发展时间线</div>
                 <div class="timeline-bar">
-                    <div class="timeline-bar-item company1" style="width: 35%;" onclick="document.getElementById('work-2022').scrollIntoView({behavior: 'smooth'})">道道网络 (2022-2026)</div>
-                    <div class="timeline-bar-item company2" style="width: 40%;" onclick="document.getElementById('work-2017').scrollIntoView({behavior: 'smooth'})">大旺网络 (2017-2022)</div>
-                    <div class="timeline-bar-item company3" style="width: 12%;" onclick="document.getElementById('work-2016').scrollIntoView({behavior: 'smooth'})">迷雾科技 (2016-2017)</div>
-                    <div class="timeline-bar-item company4" style="width: 6%;" onclick="document.getElementById('work-2015').scrollIntoView({behavior: 'smooth'})">智度 (2015)</div>
-                    <div class="timeline-bar-item company5" style="width: 25%;" onclick="document.getElementById('work-2008').scrollIntoView({behavior: 'smooth'})">旭日电脑 (2008-2014)</div>
+                    <div class="timeline-bar-item endpoint endpoint-end" onclick="">
+                        <span class="company-name">离职</span>
+                        <span class="company-years">2026</span>
+                    </div>
+                    <div class="timeline-bar-item company1" style="" onclick="document.getElementById('work-2022').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">道道网络</span>
+                        <span class="company-years">2022-2026</span>
+                    </div>
+                    <div class="timeline-bar-item company2" style="" onclick="document.getElementById('work-2017').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">大旺网络</span>
+                        <span class="company-years">2017-2022</span>
+                    </div>
+                    <div class="timeline-bar-item company3" style="" onclick="document.getElementById('work-2016').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">迷雾</span>
+                        <span class="company-years">2016-17</span>
+                    </div>
+                    <div class="timeline-bar-item company4" style="" onclick="document.getElementById('work-2015').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">智度</span>
+                        <span class="company-years">2015</span>
+                    </div>
+                    <div class="timeline-bar-item company5" style="" onclick="document.getElementById('work-2008').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">旭日电脑</span>
+                        <span class="company-years">2008-2014</span>
+                    </div>
+                    <div class="timeline-bar-item company6" style="" onclick="document.getElementById('work-2007').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">鸿远</span>
+                        <span class="company-years">2007</span>
+                    </div>
+                    <div class="timeline-bar-item company7" style="" onclick="document.getElementById('work-2006').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">港澳</span>
+                        <span class="company-years">2006-07</span>
+                    </div>
+                    <div class="timeline-bar-item endpoint endpoint-start" onclick="">
+                        <span class="company-name">毕业</span>
+                        <span class="company-years">2006</span>
+                    </div>
                 </div>
                 <div class="timeline-years">
-                    <span>2006</span>
-                    <span>2010</span>
-                    <span>2015</span>
-                    <span>2020</span>
                     <span>2026</span>
+                    <span>2024</span>
+                    <span>2022</span>
+                    <span>2020</span>
+                    <span>2018</span>
+                    <span>2016</span>
+                    <span>2014</span>
+                    <span>2012</span>
+                    <span>2010</span>
+                    <span>2008</span>
+                    <span>2006</span>
                 </div>
             </div>
 
@@ -2106,17 +2207,15 @@
             <table class="exp-summary-table">
                 <thead>
                     <tr>
-                        <th style="width: 22%;">公司</th>
-                        <th style="width: 15%;">时间</th>
-                        <th style="width: 12%;">职位</th>
-                        <th style="width: 35%;">技术栈</th>
-                        <th style="width: 16%;">主要业绩</th>
+                        <th style="width: 25%; text-align: center;">公司</th>
+                        <th style="width: 15%; text-align: center;">职位</th>
+                        <th style="width: 35%; text-align: center;">技术栈</th>
+                        <th style="width: 25%; text-align: center;">核心工作</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr id="work-2022">
                         <td><a href="#work-2022" class="company-link">深圳道道网络科技</a></td>
-                        <td><span class="duration-badge">2022.04 - 2026.01</span></td>
                         <td>全栈工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2138,7 +2237,6 @@
                     </tr>
                     <tr id="work-2017">
                         <td><a href="#work-2017" class="company-link">深圳大旺网络科技</a></td>
-                        <td><span class="duration-badge">2017.06 - 2022.04</span></td>
                         <td>全栈工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2160,7 +2258,6 @@
                     </tr>
                     <tr id="work-2016">
                         <td><a href="#work-2016" class="company-link">深圳迷雾科技</a></td>
-                        <td><span class="duration-badge">2016.03 - 2017.06</span></td>
                         <td>后台工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2179,7 +2276,6 @@
                     </tr>
                     <tr id="work-2015">
                         <td><a href="#work-2015" class="company-link">广州智度网络科技</a></td>
-                        <td><span class="duration-badge">2015.04 - 2015.11</span></td>
                         <td>后台工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2194,7 +2290,6 @@
                     </tr>
                     <tr id="work-2008">
                         <td><a href="#work-2008" class="company-link">广州旭日电脑</a></td>
-                        <td><span class="duration-badge">2008.04 - 2014.08</span></td>
                         <td>嵌入式工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2208,7 +2303,6 @@
                     </tr>
                     <tr id="work-2007">
                         <td>深圳鸿远智欣</td>
-                        <td><span class="duration-badge">2007.03 - 2007.09</span></td>
                         <td>嵌入式工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2218,11 +2312,10 @@
                                 <span class="tech-badge">并口通讯</span>
                             </div>
                         </td>
-                        <td>门禁系统</br>停车场系统</br>地磅自动称重<br>监控系统</td>
+                        <td>门禁系统<br>停车场系统<br>地磅自动称重<br>监控系统</td>
                     </tr>
                     <tr id="work-2006">
                         <td>重庆港澳大家软件</td>
-                        <td><span class="duration-badge">2006.06 - 2007.02</span></td>
                         <td>开发工程师</td>
                         <td>
                             <div class="tech-stack-list">
@@ -2232,7 +2325,7 @@
                                 <span class="tech-badge">串口通讯</span>
                             </div>
                         </td>
-                        <td>路桥收费系统</br>交通卡加密读写</td>
+                        <td>路桥收费系统<br>交通卡加密读写</td>
                     </tr>
                 </tbody>
             </table>
@@ -2524,8 +2617,29 @@
                     </div>
                 </p>
             </div>
+
             <div class="work-card">
-                <div class="company-title">聊天棋牌 - 公共服务</div>
+                <div class="company-title">
+                    宜黄/乐安/永丰扑克 / 崇仁/乐安/永丰麻将
+                </div>
+                <div class="work-period">
+                    2017.12 - 2022.04 | 设计/编码/维护
+                </div>
+                <p class="mt-3">
+                    <strong>项目简介：</strong>地方棋牌游戏开发与维护。
+                </p>
+                <p>
+                    <strong>核心工作：</strong
+                    >服务端开发、通信协议制定、机器人陪打功能、线上部署、运营监控
+                </p>
+                <p>
+                    <strong>主要业绩：</strong
+                    >正式上线后用户反馈良好，系统稳定可靠。
+                </p>
+            </div>
+
+            <div class="work-card">
+                <div class="company-title">聊聊棋牌 - 公共服务</div>
                 <div class="work-period">
                     2018.10 - 2022.04 | 设计/编码/维护
                 </div>
@@ -2548,7 +2662,7 @@
             </div>
 
             <div class="work-card">
-                <div class="company-title">聊天棋牌 - 用户服</div>
+                <div class="company-title">聊聊棋牌 - 用户服</div>
                 <div class="work-period">
                     2017.12 - 2022.04 | 设计/编码/维护
                 </div>
@@ -2566,25 +2680,7 @@
                 </p>
             </div>
 
-            <div class="work-card">
-                <div class="company-title">
-                    宜黄红心5 / 乐安打盾 / 永丰510K / 永丰找朋友
-                </div>
-                <div class="work-period">
-                    2017.12 - 2022.04 | 设计/编码/维护
-                </div>
-                <p class="mt-3">
-                    <strong>项目简介：</strong>地方棋牌游戏开发与维护。
-                </p>
-                <p>
-                    <strong>核心工作：</strong
-                    >服务端开发、通信协议制定、机器人陪打功能、线上部署、运营监控
-                </p>
-                <p>
-                    <strong>主要业绩：</strong
-                    >正式上线后用户反馈良好，系统稳定可靠。
-                </p>
-            </div>
+            
 
             <div class="work-card">
                 <div class="company-title">聊聊棋牌 - 运营后台</div>
