@@ -1,0 +1,1611 @@
+<!doctype html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>易军军 - Golang&Python</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link rel="icon" type="image/png" href="favicon.png">
+        <link href="bootstrap.min.css" rel="stylesheet" />
+        <link href="bootstrap-icons-full.css" rel="stylesheet" />
+        <link href="noto-sans-sc.css" rel="stylesheet" />
+        <style>
+@page {
+    size: A4;
+    margin: 15mm 20mm;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
+}
+
+html {
+    scroll-behavior: auto;
+}
+
+body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1a202c;
+    background: white !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header Section */
+.header-section {
+    background: white !important;
+    color: black !important;
+    padding: 20px 0 !important;
+    margin-bottom: 25px !important;
+    border-bottom: 1px solid #ccc !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    animation: none !important;
+}
+
+.header-section::before,
+.header-section::after {
+    display: none !important;
+}
+
+.header-content {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.header-main {
+    flex: 0 1 40% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+}
+
+.avatar-wrapper {
+    flex: 0 1 50% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+}
+
+.header-info-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    max-width: 100% !important;
+}
+
+.header-info-grid .info-item {
+    padding: 6px 12px !important;
+    font-size: 8pt !important;
+    margin: 0 !important;
+}
+
+.header-info-grid .info-item i {
+    font-size: 12px !important;
+}
+
+.avatar-container {
+    width: 55px !important;
+    height: 55px !important;
+    border: none !important;
+    margin-bottom: 8px !important;
+    overflow: visible !important;
+    border-radius: 50% !important;
+    background: none !important;
+    box-shadow: none !important;
+}
+
+.avatar-container::before {
+    display: none !important;
+}
+
+.avatar-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.name-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 6px !important;
+    color: black !important;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-shadow: none !important;
+    background: none !important;
+    -webkit-text-fill-color: black !important;
+}
+
+.name-title::after {
+    display: none !important;
+}
+
+.role-title {
+    font-size: 0.85rem !important;
+    color: #4a5568 !important;
+    margin: 0 !important;
+    font-weight: 500;
+    text-shadow: none !important;
+}
+
+.role-title::after {
+    display: none !important;
+}
+
+.info-item {
+    display: inline-block !important;
+    margin: 4px 8px !important;
+    padding: 4px 10px !important;
+    font-size: 9pt !important;
+    background: #f7fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    color: #4a5568;
+}
+
+.info-item i {
+    font-size: 14px !important;
+}
+
+.info-item a {
+    color: #667eea !important;
+    text-decoration: none !important;
+}
+
+/* Section Title */
+.section-title {
+    font-size: 1.5rem !important;
+    margin-top: 25px !important;
+    margin-bottom: 15px !important;
+    color: #2d3748;
+    font-weight: 700;
+    position: relative;
+    padding-left: 25px;
+}
+
+.section-title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 6px;
+    height: 45px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 3px;
+}
+
+#experience-title {
+    margin-top: -10px !important;
+}
+
+.section-title i {
+    color: #667eea;
+    margin-right: 10px;
+    font-size: 1rem;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 15px !important;
+    padding: 15px 0 !important;
+}
+
+.skill-card {
+    padding: 18px 15px !important;
+    box-shadow: none !important;
+    border: 1px solid #667eea !important;
+    background: white !important;
+    transition: none !important;
+}
+
+.skill-card::before {
+    height: 4px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.skill-card .skill-title {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+    color: #667eea !important;
+    font-weight: 600;
+}
+
+.skill-card .skill-title i {
+    font-size: 1.2rem !important;
+    margin-right: 10px !important;
+    color: #667eea !important;
+}
+
+.skill-card .skill-items {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-card .skill-items li {
+    font-size: 0.9rem !important;
+    padding-left: 18px !important;
+    margin-bottom: 6px !important;
+    color: #2d3748;
+    position: relative;
+}
+
+.skill-card .skill-items li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: #667eea;
+    font-size: 0.65rem;
+    top: 4px;
+}
+
+/* Fullstack Container */
+.fullstack-section {
+    padding: 20px 0 !important;
+    margin-bottom: 15px !important;
+}
+
+.fullstack-container {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    padding: 20px !important;
+    border: 1px solid #e2e8f0 !important;
+    white-space: nowrap !important;
+    background: white !important;
+}
+
+.fullstack-module {
+    padding: 15px 20px !important;
+    flex-shrink: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 600;
+    text-align: center;
+    border-radius: 12px;
+    transition: none !important;
+}
+
+.fullstack-me {
+    padding: 20px 30px !important;
+    flex-shrink: 0 !important;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.fullstack-me .emoji {
+    font-size: 28px !important;
+}
+
+.fullstack-me .title {
+    font-size: 1.2rem !important;
+}
+
+.fullstack-icon {
+    font-size: 24px !important;
+}
+
+.fullstack-text {
+    font-size: 0.9rem !important;
+}
+
+.fullstack-arrow {
+    font-size: 22px !important;
+    color: #667eea !important;
+    flex-shrink: 0 !important;
+    margin: 0 8px !important;
+    animation: none !important;
+}
+
+.fullstack-demand {
+    background: linear-gradient(135deg, #ff9f43, #ff7730);
+}
+
+.fullstack-front {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+}
+
+.fullstack-back {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+
+.fullstack-ops {
+    background: linear-gradient(135deg, #00b894, #55efc4);
+}
+
+/* Work Cards */
+.work-card {
+    margin-bottom: 20px !important;
+    padding: 20px !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    background: white !important;
+}
+
+.work-card::before {
+    width: 4px !important;
+    background: linear-gradient(135deg, #667eea, #764ba2) !important;
+}
+
+.work-card .company-title {
+    font-size: 1.3rem !important;
+    margin-bottom: 8px !important;
+    color: #2d3748;
+}
+
+.work-card .work-period {
+    font-size: 1rem !important;
+    margin-bottom: 10px !important;
+    color: #718096;
+}
+
+.work-card .work-position {
+    font-size: 0.95rem !important;
+    padding: 5px 15px !important;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 20px;
+}
+
+/* Timeline Chart */
+.timeline-chart {
+    display: block !important;
+    margin-top: 25px !important;
+    margin-bottom: 30px !important;
+    padding: 0 !important;
+}
+
+.timeline-bar {
+    height: 45px !important;
+    margin: 10px 0 30px 0 !important;
+    background: linear-gradient(90deg, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.08) 100%);
+    border-radius: 12px;
+    position: relative;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 !important;
+}
+
+.timeline-bar-item {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+    padding: 6px 10px !important;
+    font-size: 0.75rem !important;
+    min-height: 30px !important;
+    border-radius: 12px;
+    color: white;
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.timeline-bar-item .company-name {
+    font-size: 0.95rem !important;
+    margin-bottom: 0;
+    line-height: 1.8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+}
+
+.timeline-bar-item.company1 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.timeline-bar-item.company2 {
+    background: linear-gradient(135deg, #ff9f43, #ff7730);
+}
+
+.timeline-bar-item.company3 {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+}
+
+.timeline-bar-item.company4 {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+}
+
+.timeline-bar-item.company5 {
+    background: linear-gradient(135deg, #00b894, #55efc4);
+}
+
+.timeline-bar-item.company6 {
+    background: linear-gradient(135deg, #fd79a8, #e84393);
+}
+
+.timeline-bar-item.company7 {
+    background: linear-gradient(135deg, #fdcb6e, #f39c12);
+}
+
+.timeline-bar-item.endpoint {
+    background: linear-gradient(135deg, #2d3436, #636e72);
+    font-size: 0.6rem !important;
+    min-width: 35px;
+    padding: 4px 6px;
+}
+
+.timeline-years {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    font-size: 0.55rem !important;
+    color: #718096;
+    margin-top: 15px;
+}
+
+/* Achievement Stats */
+.achievement-stats {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 18px !important;
+    margin-top: 15px !important;
+    margin-bottom: 20px !important;
+}
+
+.stat-card {
+    padding: 18px !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    background: white !important;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-label {
+    font-size: 0.9rem !important;
+    color: #718096;
+    margin-top: 8px;
+}
+
+/* Tables */
+.exp-summary-table,
+.skills-matrix,
+.impact-table,
+.project-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: none;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 40px;
+}
+
+.exp-summary-table thead,
+.skills-matrix thead,
+.impact-table thead,
+.project-table thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.exp-summary-table th,
+.skills-matrix th,
+.impact-table th,
+.project-table th {
+    padding: 12px 10px !important;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.95rem !important;
+    border: none;
+}
+
+.exp-summary-table td,
+.skills-matrix td,
+.impact-table td,
+.project-table td {
+    padding: 10px 10px !important;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 0.9rem !important;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.exp-summary-table tr:last-child td,
+.skills-matrix tr:last-child td,
+.impact-table tr:last-child td,
+.project-table tr:last-child td {
+    border-bottom: none;
+}
+
+.company-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.duration-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    color: #667eea;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.tech-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    color: #667eea;
+    padding: 6px 12px !important;
+    border-radius: 20px;
+    font-size: 0.85rem !important;
+    font-weight: 500;
+    margin: 4px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.skill-level {
+    display: inline-block;
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 24px !important;
+    border-radius: 50%;
+    font-size: 0.8rem !important;
+    font-weight: 600;
+}
+
+.skill-level.high {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.skill-level.medium {
+    background: linear-gradient(135deg, #ff9f43, #ff7730);
+    color: white;
+}
+
+.skill-level.low {
+    background: #e2e8f0;
+    color: #718096;
+}
+
+.impact-metric {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: #667eea;
+    font-weight: 500;
+    font-size: 0.75rem !important;
+}
+
+.project-name {
+    font-weight: 600;
+    color: #667eea;
+    font-size: 0.85rem !important;
+}
+
+.project-time {
+    font-size: 0.7rem !important;
+    color: #718096;
+    white-space: nowrap;
+}
+
+.project-category {
+    display: inline-block;
+    padding: 4px 8px !important;
+    border-radius: 14px;
+    font-size: 0.7rem !important;
+    font-weight: 500;
+    margin: 4px;
+}
+
+.project-category.edu {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15), rgba(118, 75, 162, 0.15));
+    color: #667eea;
+}
+
+.project-category.game {
+    background: linear-gradient(135deg, rgba(255, 159, 67, 0.15), rgba(255, 119, 48, 0.15));
+    color: #ff7730;
+}
+
+.project-category.tool {
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.15), rgba(85, 239, 196, 0.15));
+    color: #00b894;
+}
+
+/* Wordcloud Container */
+.wordcloud-container {
+    padding: 25px !important;
+    box-shadow: none !important;
+    border: 1px solid #e2e8f0 !important;
+    text-align: center;
+    background: white !important;
+}
+
+.wordcloud-image {
+    max-width: 100%;
+}
+
+/* QR Code Grid */
+.qr-grid {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 20px !important;
+    padding: 25px !important;
+}
+
+.qr-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.qr-item img {
+    width: 90px !important;
+    height: 90px !important;
+    border-width: 2px;
+    padding: 8px !important;
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 12px;
+    background: white;
+}
+
+.qr-item .qr-label {
+    font-size: 0.9rem !important;
+    margin-top: 12px;
+    color: #2d3748;
+}
+
+/* Footer */
+.footer {
+    margin-top: 40px !important;
+    padding: 25px 0 20px !important;
+    background: white !important;
+    color: #2d3748 !important;
+    text-align: center;
+}
+
+.footer .motto {
+    font-size: 1.2rem !important;
+    margin: 15px 0;
+    color: #667eea;
+    font-weight: 600;
+}
+
+/* Hide hover effects and other non-print elements */
+a {
+    text-decoration: none !important;
+    color: #2d3748 !important;
+}
+
+.advantage-grid {
+    display: none !important;
+}
+
+.timeline-horizontal {
+    display: none !important;
+}
+
+/* Tech stack list */
+.tech-stack-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: center;
+}
+</style>
+    </head>
+    <body>
+        <!-- Header & Basic Info -->
+        <header class="header-section">
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-main">
+                        <div class="header-info-grid">
+                            <div class="info-item">
+                                <i class="bi bi-code-slash"></i>
+                                <span>Golang&Python</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-clock-history"></i>
+                                <span>20+年</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-person-check"></i>
+                                <span>靠谱&好学&抗压</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-currency-yen"></i>
+                                <span>15-30K</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-robot"></i>
+                                <span>大模型:下一代编译器</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="bi bi-link-45deg"></i>
+                                <span><a href="https://resume.yijunjun.icu">resume.yijunjun.icu</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="avatar-wrapper">
+                        <div class="avatar-container">
+                            <img src="头像_opt.jpg" alt="易军军头像" />
+                        </div>
+                        <h1 class="name-title">易军军</h1>
+                        <p class="role-title"> 18979439516 | yijunjun@163.com | 深圳 </p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Personal Advantages -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-star-fill"></i> 主要技能
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-server"></i>后端
+                    </div>
+                    <ul class="skill-items">
+                        <li>Golang</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title"><i class="bi bi-robot"></i>AI</div>
+                    <ul class="skill-items">
+                        <li>iflow cli</li>
+                        <li>CodeBuddy cli</li>
+                        <li>Qwen cli</li>
+                        <li>opencode cli</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-tools"></i>工具
+                    </div>
+                    <ul class="skill-items">
+                        <li>Trae | Comate | Lingma | Codebuddy</li>
+                        <li>Warp</li>
+                        <li>VsCode | Sublime | Zed | Lapce</li>
+                        <li>WireShark|Postman</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-database"></i>数据库
+                    </div>
+                    <ul class="skill-items">
+                        <li>MySQL</li>
+                        <li>Redis</li>
+                        <li>Mongodb</li>
+                        <li>Neo4j</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-chat-dots"></i>数据交换
+                    </div>
+                    <ul class="skill-items">
+                        <li>Protobuf</li>
+                        <li>Json</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-diagram-3"></i>协议
+                    </div>
+                    <ul class="skill-items">
+                        <li>Tcp</li>
+                        <li>Http</li>
+                        <li>gRPC</li>
+                        <li>WebSocket</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-gear"></i>管理部署
+                    </div>
+                    <ul class="skill-items">
+                        <li>Git</li>
+                        <li>Docker|K8s|Rancher</li>
+                        <li>Jenkins</li>
+                        <li>Nginx</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-title">
+                        <i class="bi bi-palette"></i>前端
+                    </div>
+                    <ul class="skill-items">
+                        <li>Vue</li>
+                        <li>Flutter</li>
+                        <li>Html|Css|Js</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fullstack Capability -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-layers"></i> 全栈能力</h2>
+            <div class="fullstack-section">
+                <div class="fullstack-container">
+                    <div class="fullstack-module fullstack-demand">
+                        <div class="fullstack-icon">🤔</div>
+                        <div class="fullstack-text">需求<br />听懂人话</div>
+                    </div>
+                    <div class="fullstack-arrow">→</div>
+                    <div class="fullstack-module fullstack-front">
+                        <div class="fullstack-icon">🎨</div>
+                        <div class="fullstack-text">前端<br />聊得来</div>
+                    </div>
+                    <div class="fullstack-arrow">→</div>
+                    <div class="fullstack-module fullstack-me">
+                        <div class="emoji">🦸</div>
+                        <div class="title">我</div>
+                    </div>
+                    <div class="fullstack-arrow">←</div>
+                    <div class="fullstack-module fullstack-back">
+                        <div class="fullstack-icon">🔧</div>
+                        <div class="fullstack-text">后端<br />深耕本块</div>
+                    </div>
+                    <div class="fullstack-arrow">←</div>
+                    <div class="fullstack-module fullstack-ops">
+                        <div class="fullstack-icon">🚀</div>
+                        <div class="fullstack-text">运维<br />缺人我顶</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education & Certificates -->
+        <section class="container">
+            <h2 class="section-title" style="font-size: 1.6rem;">
+                <i class="bi bi-mortarboard-fill"></i> 教育经历 & 资格证书
+            </h2>
+            <div class="work-card" style="box-shadow: none; border: 1px solid #e2e8f0; background: white;">
+                <div class="row">
+                    <div class="col-md-6" style="border-right: 1px solid #edf2f7;">
+                        <div class="company-title" style="font-size: 1.4rem;">
+                            <img src="cqut_logo.svg" alt="重庆理工大学" style="width: 36px; height: 36px; vertical-align: middle; margin-right: 10px;">重庆理工大学
+                        </div>
+                        <div class="work-period" style="font-size: 1.2rem; margin: 8px 0;">2002 - 2006</div>
+                        <span class="work-position" style="font-size: 1.2rem;">
+                            <img src="gear_icon.svg" alt="专业" style="width: 22px; height: 22px; vertical-align: middle; margin-right: 6px;">材料成型及控制工程
+                        </span>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row" style="margin-top: 12px;">
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1.2rem;">
+                                    <img src="soft_cert.svg" alt="软件设计师" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">软件设计师
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1.2rem;">
+                                    <img src="programmer_cert.svg" alt="程序员" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">程序员
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1.2rem;">
+                                    <img src="g2_small.jpeg" alt="毕业证" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">毕业证
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="achievement-item" style="font-size: 1.2rem;">
+                                    <img src="d2_small.jpg" alt="学位证" style="width: 26px; height: 26px; vertical-align: middle; margin-right: 8px;">学位证
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work Experience Summary -->
+        <section class="container">
+            <!-- Timeline Bar Chart - 合并版 -->
+            <h2 class="section-title">
+                    <i class="bi bi-clock-history"></i> 职业时间线
+                </h2>
+            <div class="timeline-chart">
+                <div class="timeline-bar">
+                    <div class="timeline-bar-item endpoint endpoint-end" onclick="">
+                        <span class="company-name">离职</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company1" style="" onclick="document.getElementById('work-2022').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">道道网络</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company2" style="" onclick="document.getElementById('work-2017').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">大旺网络</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company3" style="" onclick="document.getElementById('work-2016').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">迷雾</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company4" style="" onclick="document.getElementById('work-2015').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">智度</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company5" style="" onclick="document.getElementById('work-2008').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">旭日电脑</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company6" style="" onclick="document.getElementById('work-2007').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">鸿远</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item company7" style="" onclick="document.getElementById('work-2006').scrollIntoView({behavior: 'smooth'})">
+                        <span class="company-name">港澳</span>
+                        
+                    </div>
+                    <div class="timeline-bar-item endpoint endpoint-start" onclick="">
+                        <span class="company-name">毕业</span>
+                        
+                    </div>
+                </div>
+                <div class="timeline-years">
+                    <span>2026</span>
+                    <span>2024</span>
+                    <span>2022</span>
+                    <span>2020</span>
+                    <span>2018</span>
+                    <span>2016</span>
+                    <span>2014</span>
+                    <span>2012</span>
+                    <span>2010</span>
+                    <span>2008</span>
+                    <span>2006</span>
+                </div>
+            </div>
+
+            <h2 class="section-title" id="experience-title">
+                <i class="bi bi-briefcase-fill"></i> 工作经历
+            </h2>
+
+            <!-- Career Stats -->
+            <div class="achievement-stats">
+                <div class="stat-card">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">年工作经验</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">家公司经历</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">核心项目</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8</div>
+                    <div class="stat-label">技术方向</div>
+                </div>
+            </div>
+
+            <!-- Work Experience Summary Table -->
+            <table class="exp-summary-table">
+                <thead>
+                    <tr>
+                        <th style="width: 25%; text-align: center;">公司</th>
+                        <th style="width: 15%; text-align: center;">职位</th>
+                        <th style="width: 35%; text-align: center;">技术栈</th>
+                        <th style="width: 25%; text-align: center;">核心工作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr id="work-2022">
+                        <td><a href="#work-2022" class="company-link">深圳道道网络科技</a></td>
+                        <td>全栈工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">PaddleOCR</span>
+                                <span class="tech-badge">gRPC</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">Neo4j</span>
+                                <span class="tech-badge">ES</span>
+                                <span class="tech-badge">K8s</span>
+                                <span class="tech-badge">Docker</span>
+                                <span class="tech-badge">FastGPT</span>
+                            </div>
+                        </td>
+                        <td>招生大本百分百数字化<br>高精度招录跨年关联<br>批量PDF自动化生成</td>
+                    </tr>
+                    <tr id="work-2017">
+                        <td><a href="#work-2017" class="company-link">深圳大旺网络科技</a></td>
+                        <td>全栈工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">TCP</span>
+                                <span class="tech-badge">Protobuf</span>
+                                <span class="tech-badge">HTTP</span>
+                                <span class="tech-badge">Vue.js</span>
+                                <span class="tech-badge">Unity3D</span>
+                                <span class="tech-badge">ET框架</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Jenkins</span>
+                                <span class="tech-badge">Git</span>
+                            </div>
+                        </td>
+                        <td>麻将胡牌算法<br>扑克牌型大小算法<br>游戏框架搭建</td>
+                    </tr>
+                    <tr id="work-2016">
+                        <td><a href="#work-2016" class="company-link">深圳迷雾科技</a></td>
+                        <td>后台工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Golang</span>
+                                <span class="tech-badge">Protobuf</span>
+                                <span class="tech-badge">gRPC</span>
+                                <span class="tech-badge">Beego</span>
+                                <span class="tech-badge">Echo</span>
+                                <span class="tech-badge">Consul</span>
+                                <span class="tech-badge">Redis</span>
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">Vue</span>
+                            </div>
+                        </td>
+                        <td>社交App后端<br>管理后台<br>内容监管</td>
+                    </tr>
+                    <tr id="work-2015">
+                        <td><a href="#work-2015" class="company-link">广州智度网络科技</a></td>
+                        <td>后台工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Python</span>
+                                <span class="tech-badge">Flask</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">SQL</span>
+                                <span class="tech-badge">ECharts</span>
+                            </div>
+                        </td>
+                        <td>后台管理系统<br>数据统计分析<br>游戏包分流</td>
+                    </tr>
+                    <tr id="work-2008">
+                        <td><a href="#work-2008" class="company-link">广州旭日电脑</a></td>
+                        <td>嵌入式工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">单片机</span>
+                                <span class="tech-badge">VC++</span>
+                                <span class="tech-badge">嵌入式C</span>
+                                <span class="tech-badge">烧录芯片</span>
+                            </div>
+                        </td>
+                        <td>砸金蛋<br>抓娃娃<br>套牛<br>打飞机<br>PCB故障自动诊断</td>
+                    </tr>
+                    <tr id="work-2007">
+                        <td>深圳鸿远智欣</td>
+                        <td>嵌入式工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Delphi</span>
+                                <span class="tech-badge">C</span>
+                                <span class="tech-badge">串口通讯</span>
+                                <span class="tech-badge">并口通讯</span>
+                            </div>
+                        </td>
+                        <td>门禁系统<br>停车场系统<br>地磅自动称重<br>监控系统</td>
+                    </tr>
+                    <tr id="work-2006">
+                        <td>重庆港澳大家软件</td>
+                        <td>开发工程师</td>
+                        <td>
+                            <div class="tech-stack-list">
+                                <span class="tech-badge">Delphi</span>
+                                <span class="tech-badge">C</span>
+                                <span class="tech-badge">SQL Server</span>
+                                <span class="tech-badge">串口通讯</span>
+                            </div>
+                        </td>
+                        <td>路桥收费系统<br>交通卡加密读写</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Skills by Company Table -->
+            <table class="skills-matrix">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">技术方向</th>
+                        <th style="width: 14%;">道道网络</th>
+                        <th style="width: 14%;">大旺网络</th>
+                        <th style="width: 14%;">迷雾科技</th>
+                        <th style="width: 14%;">智度科技</th>
+                        <th style="width: 14%;">旭日电脑</th>
+                        <th style="width: 12%;">掌握程度</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Golang</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>MySQL/Sql Server</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Git/Docker/K8s</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟练</span></td>
+                    </tr>
+                    <tr>
+                        <td>Redis/MongoDB</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Neo4j/ES</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟悉</span></td>
+                    </tr>
+                    <tr>
+                        <td>微服务/gRPC</td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level high">精通</span></td>
+                    </tr>
+                    <tr>
+                        <td>Vue/Flutter</td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level high">●</span></td>
+                        <td><span class="skill-level medium">●</span></td>
+                        <td><span class="skill-level low">○</span></td>
+                        <td><span class="skill-level medium">熟练</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Project Impact Table -->
+            <h3 class="section-title" style="font-size: 1.4rem; margin-top: 40px;">
+                <i class="bi bi-graph-up"></i> 核心项目
+            </h3>
+            <table class="impact-table">
+                <thead>
+                    <tr>
+                        <th style="width: 20%;">项目名称</th>
+                        <th style="width: 15%;">时间</th>
+                        <th style="width: 30%;">核心挑战</th>
+                        <th style="width: 35%;">方案与成果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>高考填报志愿</strong></td>
+                        <td><span class="duration-badge">2022-2026</span></td>
+                        <td>OCR误识别</br>文本粘连</br>图片倾斜缺漏</br>招录关联</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 前缀树+最小编辑距离</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> AC自动机发现错误</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 霍夫变换自动旋转</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 关键属性+文本相似度</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>学习力评估</strong></td>
+                        <td><span class="duration-badge">2025-2026</span></td>
+                        <td>需求变化快</br>PDF生成耗时</br>报告分页</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 缩小改动范围</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 静动分离</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 有限状态自动机生成文本</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 无界面自动化</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>游戏公共服务</strong></td>
+                        <td><span class="duration-badge">2018-2022</span></td>
+                        <td>高并发</br>实时通讯</br>状态管理</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 登录认证</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 在线状态上报</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 战绩数据上报</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏回放</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>地方麻将/扑克</strong></td>
+                        <td><span class="duration-badge">2017-2022</span></td>
+                        <td>胡牌算法</br>牌型比较</br>内存泄漏</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 麻将胡牌算法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 扑克比较算法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 内存泄漏解决</span><br>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>Python加密/反编译</strong></td>
+                        <td><span class="duration-badge">2015-2016</span></td>
+                        <td>代码保护</br>字节码逆向</td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 字节码研究</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 代码加密实现</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 反编译实现</span><br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Project Experience -->
+        <section class="container">
+            <h2 class="section-title">
+                <i class="bi bi-diagram-3"></i> 其他项目
+            </h2>
+
+            <!-- Project Table -->
+            <table class="project-table">
+                <thead>
+                    <tr>
+                        <th style="width: 18%;">项目名称</th>
+                        <th style="width: 37%;">技术栈</th>
+                        <th style="width: 45%;">核心成果</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="project-name">成长规划</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">gRPC</span>
+                            <span class="tech-badge">ES</span>
+                            <span class="tech-badge">Redis</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 同屏码</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 定向邀请码</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 临时接管机构</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 企业微信自动开机构</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-公共服务</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Protobuf</span>
+                            <span class="tech-badge">Redis</span>
+                            <span class="tech-badge">MySQL</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 统一登录</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 战绩管理</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 房卡扣费</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-用户服</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Protobuf</span>
+                            <span class="tech-badge">OSS</span>
+                            <span class="tech-badge">短信</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 注册登录</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 短信通知</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 文件存储</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 日志记录</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-运营后台</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">Vue.js</span>
+                            <span class="tech-badge">ECharts</span>
+                            <span class="tech-badge">MySQL</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 统计分析</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 充值管理</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 游戏GM</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">游戏-定时统计</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">MySQL</span>
+                            <span class="tech-badge">Redis</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 日报/周报/图表</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 充值/游戏规律挖掘</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 异常状态邮件通知</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span class="project-name">斗地主/跑得快</span></td>
+                        <td>
+                            <span class="tech-badge">Golang</span>
+                            <span class="tech-badge">TCP</span>
+                            <span class="tech-badge">Protobuf</span>
+                        </td>
+                        <td>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 通用性扑克玩法</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 自动辅助出牌</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 牌型提示助手</span><br>
+                            <span class="impact-metric"><i class="bi bi-check-circle"></i> 机器人陪玩</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Skills Wordcloud -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-cloud"></i> 技能词云</h2>
+            <div class="wordcloud-container">
+                <img src="wordcloud_color.png" alt="技能词云" class="wordcloud-image" />
+            </div>
+        </section>
+
+        <!-- Personal Websites -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-globe"></i> 技术分站</h2>
+            <div class="website-table-container">
+                <div class="qr-grid">
+                    <div class="qr-item">
+                        <a href="https://python.yijunjun.icu" target="_blank">
+                            <img src="qr_Python_opt.jpg" alt="Python" />
+                            <div class="qr-label">Python</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://golang.yijunjun.icu" target="_blank">
+                            <img src="qr_Golang_opt.jpg" alt="Golang" />
+                            <div class="qr-label">Golang</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://flutter.yijunjun.icu" target="_blank">
+                            <img src="qr_Flutter_opt.jpg" alt="Flutter" />
+                            <div class="qr-label">Flutter</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a
+                            href="https://javascript.yijunjun.icu"
+                            target="_blank"
+                        >
+                            <img src="qr_JavaScript_opt.jpg" alt="JavaScript" />
+                            <div class="qr-label">JavaScript</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://docker.yijunjun.icu" target="_blank">
+                            <img src="qr_Docker_opt.jpg" alt="Docker" />
+                            <div class="qr-label">Docker</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://git.yijunjun.icu" target="_blank">
+                            <img src="qr_Git_opt.jpg" alt="Git" />
+                            <div class="qr-label">Git</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://redis.yijunjun.icu" target="_blank">
+                            <img src="qr_Redis_opt.jpg" alt="Redis" />
+                            <div class="qr-label">Redis</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://doc.yijunjun.icu" target="_blank">
+                            <img src="qr_技术文档_opt.jpg" alt="Docx" />
+                            <div class="qr-label">Docx</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://excel.yijunjun.icu" target="_blank">
+                            <img src="qr_Excel_opt.jpg" alt="Excel" />
+                            <div class="qr-label">Excel</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://pdf.yijunjun.icu" target="_blank">
+                            <img src="qr_PDF_opt.jpg" alt="PDF" />
+                            <div class="qr-label">PDF</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://neo4j.yijunjun.icu" target="_blank">
+                            <img src="qr_Neo4j_opt.jpg" alt="Neo4j" />
+                            <div class="qr-label">Neo4j</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://nginx.yijunjun.icu" target="_blank">
+                            <img src="qr_Nginx_opt.jpg" alt="Nginx" />
+                            <div class="qr-label">Nginx</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://mysql.yijunjun.icu" target="_blank">
+                            <img src="qr_MySQL_opt.jpg" alt="MySQL" />
+                            <div class="qr-label">MySQL</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://k8s.yijunjun.icu" target="_blank">
+                            <img src="qr_Kubernetes_opt.jpg" alt="Kubernetes" />
+                            <div class="qr-label">Kubernetes</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://pay.yijunjun.icu" target="_blank">
+                            <img src="qr_支付_opt.jpg" alt="支付" />
+                            <div class="qr-label">支付</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://algo.yijunjun.icu" target="_blank">
+                            <img src="qr_algo.jpg" alt="算法" />
+                            <div class="qr-label">算法</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://video.yijunjun.icu" target="_blank">
+                            <img src="qr_video.png" alt="视频处理" />
+                            <div class="qr-label">视频处理</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://audio.yijunjun.icu" target="_blank">
+                            <img src="qr_audio.png" alt="音频处理" />
+                            <div class="qr-label">音频处理</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://photo.yijunjun.icu" target="_blank">
+                            <img src="qr_photo.png" alt="图像处理" />
+                            <div class="qr-label">图像处理</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://front.yijunjun.icu" target="_blank">
+                            <img src="qr_front.png" alt="前端" />
+                            <div class="qr-label">前端</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Personal Websites -->
+        <section class="container">
+            <h2 class="section-title"><i class="bi bi-globe"></i> 兴趣分站</h2>
+            <div class="website-table-container">
+                <div class="qr-grid">
+                    <div class="qr-item">
+                        <a href="https://product.yijunjun.icu" target="_blank">
+                            <img src="qr_product.png" alt="产品经理" />
+                            <div class="qr-label">产品经理</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://trade.yijunjun.icu" target="_blank">
+                            <img src="qr_trade.png" alt="商业模式" />
+                            <div class="qr-label">商业模式</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://game.yijunjun.icu" target="_blank">
+                            <img src="qr_game.png" alt="游戏" />
+                            <div class="qr-label">游戏</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://doctor.yijunjun.icu" target="_blank">
+                            <img src="qr_医学_opt.jpg" alt="医学" />
+                            <div class="qr-label">医学</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://money.yijunjun.icu" target="_blank">
+                            <img src="qr_经济_opt.jpg" alt="经济" />
+                            <div class="qr-label">经济</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://stat.yijunjun.icu" target="_blank">
+                            <img src="qr_stat.jpg" alt="统计学" />
+                            <div class="qr-label">统计学</div>
+                        </a>
+                    </div>
+                    <div class="qr-item">
+                        <a href="https://home.yijunjun.icu" target="_blank">
+                            <img src="qr_home.png" alt="家用电器" />
+                            <div class="qr-label">家用电器</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
