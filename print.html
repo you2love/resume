@@ -85,6 +85,12 @@ body {
     gap: 12px !important;
 }
 
+.name-phone-row {
+    display: flex !important;
+    align-items: center !important;
+    gap: 15px !important;
+}
+
 .header-info-grid {
     display: grid !important;
     grid-template-columns: repeat(2, 1fr) !important;
@@ -151,8 +157,8 @@ body {
     display: none !important;
 }
 
-.role-title .phone-number {
-    font-size: 1.3rem !important;
+.phone-number {
+    font-size: 1.4rem !important;
     font-weight: 900 !important;
     color: #667eea !important;
 }
@@ -794,8 +800,11 @@ a {
                         <div class="avatar-container">
                             <img src="头像_opt.jpg" alt="易军军头像" />
                         </div>
-                        <h1 class="name-title">易军军</h1>
-                        <p class="role-title"> <span class="phone-number">18979439516</span> | yijunjun@163.com | 深圳 </p>
+                        <div class="name-phone-row">
+                            <h1 class="name-title">易军军</h1>
+                            <span class="phone-number">18979439516</span>
+                        </div>
+                        <p class="role-title"> yijunjun@163.com | 深圳 </p>
                     </div>
                 </div>
             </div>
